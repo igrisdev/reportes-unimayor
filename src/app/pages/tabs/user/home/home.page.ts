@@ -10,6 +10,7 @@ import {
   IonContent,
   IonLabel,
 } from '@ionic/angular/standalone';
+import { NoReportsComponent } from '../../../../witget/no-reports/no-reports.component';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,6 @@ import {
   styleUrls: ['./home.page.scss'],
   standalone: true,
   imports: [
-    IonLabel,
     IonContent,
     IonCol,
     IonRow,
@@ -26,6 +26,7 @@ import {
     IonHeader,
     CommonModule,
     FormsModule,
+    NoReportsComponent,
   ],
 })
 export class HomePage implements OnInit {
