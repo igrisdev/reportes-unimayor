@@ -8,8 +8,8 @@ import {
   IonRow,
   IonCol,
   IonContent,
-  IonLabel,
 } from '@ionic/angular/standalone';
+
 import { NoReportsComponent } from '../../../../witget/no-reports/no-reports.component';
 
 @Component({
