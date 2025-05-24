@@ -20,3 +20,11 @@ ion-header {
     font-weight: bold;
   }
 }
+
+ion-content {
+  background: var(--ion-color-unimayor-light);
+
+  ion-row {
+    height: 100%;
+  }
+}
