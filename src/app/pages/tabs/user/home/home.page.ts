@@ -10,7 +10,7 @@ import {
   IonContent,
 } from '@ionic/angular/standalone';
 
-import { NoReportsComponent } from '../../../../witget/no-reports/no-reports.component';
+import { NoReportsComponent } from '../../../../widget/no-reports/no-reports.component';
 
 @Component({
   selector: 'app-home',
