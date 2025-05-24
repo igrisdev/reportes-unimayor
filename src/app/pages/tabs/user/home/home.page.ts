@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
   IonHeader,
@@ -30,6 +30,8 @@ import { NoReportsComponent } from '../../../../witget/no-reports/no-reports.com
   ],
 })
 export class HomePage implements OnInit {
+  reports = new Array(10).fill(0);
+
   constructor() {}
 
   ngOnInit() {}

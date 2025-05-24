@@ -4,9 +4,17 @@
       <ion-icon aria-hidden="true" name="time"></ion-icon>
     </ion-tab-button>
 
+    @if (buttonCreateReport) {
+    <ion-tab-button tab="make-report" class="btn-make-report">
+      <ion-icon aria-hidden="true" name="add-outline"></ion-icon>
+    </ion-tab-button>
+
+    } @else {
+
     <ion-tab-button tab="home">
       <ion-icon aria-hidden="true" name="home"></ion-icon>
     </ion-tab-button>
+    }
 
     <ion-tab-button tab="profile">
       <ion-icon aria-hidden="true" name="person-circle"></ion-icon>

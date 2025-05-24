@@ -1,5 +1,5 @@
 import { Component, EnvironmentInjector, inject, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
   IonTabs,
@@ -8,7 +8,7 @@ import {
   IonIcon,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { time, home, personCircle } from 'ionicons/icons';
+import { time, home, personCircle, addOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-user',
@@ -27,13 +27,13 @@ import { time, home, personCircle } from 'ionicons/icons';
 export class UserPage implements OnInit {
   public environmentInjector = inject(EnvironmentInjector);
 
-  constructor() {
-    addIcons({
-      time,
-      home,
-      personCircle,
-    });
+  buttonCreateReport?: boolean;
+
+  constructor(private location: Location) {
+    addIcons({ time, addOutline, home, personCircle });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.buttonCreateReport = this.location.path() === '/user/home';
+  }
 }
