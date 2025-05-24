@@ -1,3 +1,7 @@
 ion-tab-bar {
-  --background: var(--ion-color-unimayor);
+  --background: var(--ion-color-unimayor-primary);
+
+  ion-icon {
+    // color: var(--ion-color-unimayor-contrast);
+  }
 }

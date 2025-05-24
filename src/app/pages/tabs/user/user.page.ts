@@ -6,10 +6,9 @@ import {
   IonTabBar,
   IonTabButton,
   IonIcon,
-  IonLabel,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import { time, home, personCircle } from 'ionicons/icons';
 
 @Component({
   selector: 'app-user',
@@ -17,7 +16,6 @@ import { ellipse, square, triangle } from 'ionicons/icons';
   styleUrls: ['./user.page.scss'],
   standalone: true,
   imports: [
-    IonLabel,
     IonIcon,
     IonTabButton,
     IonTabBar,
@@ -30,7 +28,11 @@ export class UserPage implements OnInit {
   public environmentInjector = inject(EnvironmentInjector);
 
   constructor() {
-    addIcons({ triangle, ellipse, square });
+    addIcons({
+      time,
+      home,
+      personCircle,
+    });
   }
 
   ngOnInit() {}
