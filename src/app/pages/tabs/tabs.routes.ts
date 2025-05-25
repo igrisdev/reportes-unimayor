@@ -9,8 +9,13 @@ export const routes: Routes = [
         loadChildren: () => import('./user/user.routes').then((m) => m.routes),
       },
       {
+        path: 'brigadier',
+        loadChildren: () =>
+          import('./brigadier/brigadier.routes').then((m) => m.routes),
+      },
+      {
         path: '',
-        redirectTo: '/user',
+        redirectTo: '/brigadier',
         pathMatch: 'full',
       },
     ],

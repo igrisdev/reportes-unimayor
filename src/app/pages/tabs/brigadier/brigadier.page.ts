@@ -8,13 +8,19 @@ import {
   IonIcon,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { time, home, personCircle, addOutline } from 'ionicons/icons';
+import {
+  time,
+  home,
+  personCircle,
+  addOutline,
+  alertCircle,
+} from 'ionicons/icons';
 import { HeaderComponent } from '../../../components_share/header/header.component';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.page.html',
-  styleUrls: ['./user.page.scss'],
+  selector: 'app-brigadier',
+  templateUrl: './brigadier.page.html',
+  styleUrls: ['./brigadier.page.scss'],
   standalone: true,
   imports: [
     IonIcon,
@@ -26,11 +32,11 @@ import { HeaderComponent } from '../../../components_share/header/header.compone
     HeaderComponent,
   ],
 })
-export class UserPage implements OnInit {
+export class BrigadierPage implements OnInit {
   public environmentInjector = inject(EnvironmentInjector);
 
   constructor() {
-    addIcons({ time, addOutline, home, personCircle });
+    addIcons({ time, alertCircle, personCircle, addOutline });
   }
 
   ngOnInit() {}

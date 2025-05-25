@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { UserPage } from './user.page';
+import { BrigadierPage } from './brigadier.page';
 
 export const routes: Routes = [
   {
     path: '',
-    component: UserPage,
+    component: BrigadierPage,
     children: [
       {
         path: 'home',
@@ -36,7 +36,7 @@ export const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/user/home',
+        redirectTo: '/brigadier/home',
         pathMatch: 'full',
       },
     ],

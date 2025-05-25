@@ -25,7 +25,7 @@ import {
 import { NoReportsComponent } from '../../../../widget/no-reports/no-reports.component';
 import { RouterLink } from '@angular/router';
 import { Report, ReportsService } from 'src/app/service/reports.service';
-import { LinkCreateReportComponent } from '../../../../witget/link-create-report/link-create-report.component';
+import { LinkCreateReportComponent } from '../../../../widget/link-create-report/link-create-report.component';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
 
 @Component({
