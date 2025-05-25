@@ -23,6 +23,7 @@ import {
 import { ReportsService } from 'src/app/service/reports.service';
 import { RouterLink } from '@angular/router';
 import { NoReportsComponent } from '../../../../widget/no-reports/no-reports.component';
+import { HeaderComponent } from '../../../../components_share/header/header.component';
 
 @Component({
   selector: 'app-history',
@@ -51,6 +52,7 @@ import { NoReportsComponent } from '../../../../widget/no-reports/no-reports.com
     CommonModule,
     RouterLink,
     NoReportsComponent,
+    HeaderComponent,
   ],
 })
 export class HistoryPage implements OnInit {

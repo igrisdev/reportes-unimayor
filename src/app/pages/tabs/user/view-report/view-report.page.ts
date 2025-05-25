@@ -18,6 +18,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ReportsService, Report } from 'src/app/service/reports.service';
 import { addIcons } from 'ionicons';
 import { arrowBackOutline } from 'ionicons/icons';
+import { HeaderComponent } from '../../../../components_share/header/header.component';
 
 @Component({
   selector: 'app-view-report',
@@ -39,6 +40,7 @@ import { arrowBackOutline } from 'ionicons/icons';
     CommonModule,
     FormsModule,
     RouterLink,
+    HeaderComponent,
   ],
 })
 export class ViewReportPage implements OnInit {
