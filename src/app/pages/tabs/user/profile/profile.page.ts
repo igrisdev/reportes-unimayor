@@ -6,8 +6,17 @@ import {
   IonHeader,
   IonTitle,
   IonToolbar,
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonButton,
+  IonIcon,
+  IonAvatar,
 } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { logOutOutline } from 'ionicons/icons';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -19,13 +28,26 @@ import { HeaderComponent } from '../../../../components_share/header/header.comp
     IonHeader,
     IonTitle,
     IonToolbar,
+    IonCard,
+    IonCardHeader,
+    IonCardTitle,
+    IonButton,
+    IonIcon,
+    IonAvatar,
     CommonModule,
     FormsModule,
     HeaderComponent,
   ],
 })
 export class ProfilePage implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {
+    addIcons({ logOutOutline });
+  }
 
   ngOnInit() {}
+
+  logout() {
+    // Add your logout logic here
+    this.router.navigate(['/login']);
+  }
 }
