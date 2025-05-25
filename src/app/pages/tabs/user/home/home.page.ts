@@ -30,7 +30,6 @@ import { RouterLink } from '@angular/router';
 interface Report {
   id: number;
   location: string;
-  title: string;
   description: string;
   date: string;
   status: string;
@@ -72,7 +71,6 @@ export class HomePage implements OnInit {
   reports: Report[] = new Array(4).fill({
     id: 1,
     location: 'Unimayor',
-    title: 'Reporte de Prueba',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget consectetur molestie, ipsum ligula eleifend magna, vel convallis augue augue eu eros. Nam eget nisi id nisl ultrices aliquam. Ut euismod, nisl eget consectetur molestie, ipsum ligula eleifend magna, vel convallis augue augue eu eros. Nam eget nisi id nisl ultrices aliquam.',
     date: '2022-01-01 10:00',
