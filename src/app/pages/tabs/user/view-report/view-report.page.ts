@@ -11,9 +11,13 @@ import {
   IonRow,
   IonAvatar,
   IonCol,
+  IonRouterLink,
+  IonIcon,
 } from '@ionic/angular/standalone';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ReportsService, Report } from 'src/app/service/reports.service';
+import { addIcons } from 'ionicons';
+import { arrowBackOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-view-report',
@@ -21,6 +25,8 @@ import { ReportsService, Report } from 'src/app/service/reports.service';
   styleUrls: ['./view-report.page.scss'],
   standalone: true,
   imports: [
+    IonIcon,
+    IonRouterLink,
     IonCol,
     IonAvatar,
     IonRow,
@@ -32,6 +38,7 @@ import { ReportsService, Report } from 'src/app/service/reports.service';
     IonToolbar,
     CommonModule,
     FormsModule,
+    RouterLink,
   ],
 })
 export class ViewReportPage implements OnInit {
@@ -39,6 +46,10 @@ export class ViewReportPage implements OnInit {
   private reportService = inject(ReportsService);
 
   report = signal<Report | null>(null);
+
+  constructor() {
+    addIcons({ arrowBackOutline });
+  }
 
   ngOnInit() {
     const reportId = Number(this.route.snapshot.paramMap.get('id'));
