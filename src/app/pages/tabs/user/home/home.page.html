@@ -16,4 +16,56 @@
   @defer (when reports.length <= 0) {
   <app-no-reports></app-no-reports>
   }
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+        <h2>Reportes En Curso</h2>
+      </ion-label>
+    </ion-list-header>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Card Title</ion-card-title>
+        <ion-card-subtitle>6:23 pm</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo
+        accusantium, cupiditate facere placeat repellat mollitia soluta libero
+        esse hic voluptas amet pariatur dolorum odit vero maxime, debitis
+        ducimus ipsum quam.
+      </ion-card-content>
+
+      <ion-row class="ion-justify-content-between ion-align-items-center">
+        <ion-badge color="warning" class="ion-margin">En Proceso</ion-badge>
+
+        <ion-label class="ion-padding">10 de 10</ion-label>
+      </ion-row>
+    </ion-card>
+
+    <ion-list-header>
+      <ion-label>
+        <h2>Estado De Últimos Reportes</h2>
+      </ion-label>
+    </ion-list-header>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Card Title</ion-card-title>
+        <ion-card-subtitle>6:23 pm</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo
+        accusantium, cupiditate facere placeat repellat mollitia soluta libero
+        esse hic voluptas amet pariatur dolorum odit vero maxime, debitis
+        ducimus ipsum quam.
+      </ion-card-content>
+
+      <ion-row class="ion-justify-content-between ion-align-items-center">
+        <ion-badge color="success" class="ion-margin">Finalizado</ion-badge>
+
+        <ion-label class="ion-padding">10 de 10</ion-label>
+      </ion-row>
+    </ion-card>
+  </ion-list>
 </ion-content>
