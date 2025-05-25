@@ -1,3 +1,87 @@
 ion-content {
   background: var(--ion-color-unimayor-light);
 }
+
+.section-title {
+  margin-bottom: 16px;
+  
+  h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+  }
+}
+
+.report-card {
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-shadow: none;
+  border: 1px solid #e74c3c;
+  overflow: hidden;
+  background-color: rgba(231, 76, 60, 0.05);
+  padding: 0;
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: none;
+    
+    .location-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #0645ad;
+    }
+    
+    .time {
+      font-size: 14px;
+      color: #666;
+    }
+  }
+  
+  .card-content {
+    padding: 8px 16px 12px;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+  }
+  
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px 12px;
+    
+    .accept-button {
+      --border-radius: 20px;
+      --padding-start: 24px;
+      --padding-end: 24px;
+      font-size: 14px;
+      margin: 0;
+      --background: #79b8f2;
+      --color: #000;
+      --color-hover: #000;
+      --color-activated: #000;
+      --color-focused: #000;
+      text-transform: none;
+      height: 32px;
+      font-weight: 700;
+      --ion-font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Roboto', sans-serif;
+    }
+    
+    .status-badge {
+      padding: 6px 12px;
+      border-radius: 16px;
+      font-size: 12px;
+      font-weight: normal;
+    }
+    
+    .date-label {
+      font-size: 13px;
+      color: #666;
+      text-align: right;
+    }
+  }
+}

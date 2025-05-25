@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import {
   IonHeader,
   IonAvatar,
@@ -64,7 +65,26 @@ import { HeaderComponent } from '../../../../components_share/header/header.comp
 export class HomePage implements OnInit {
   reports: Report[] = inject(ReportsService).getReports();
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
+
+  // Maneja el clic en la tarjeta
+  onCardClick(event: MouseEvent, reportId: number) {
+    // Navega a la página de vista de reporte solo si el clic no fue en el botón Aceptar
+    if (!(event.target as HTMLElement).closest('.accept-button')) {
+      this.router.navigate(['/brigadier/view-report', reportId]);
+    }
+  }
+
+  // Maneja el clic en el botón Aceptar
+  onAcceptReport(event: Event, reportId: number) {
+    // Detiene la propagación para evitar que el clic llegue a la tarjeta
+    event.stopPropagation();
+
+    // Registra en la consola que se hizo clic en Aceptar
+    console.log('Reporte aceptado:', reportId);
+
+    // Aquí puedes agregar la lógica para aceptar el reporte
+  }
 }
