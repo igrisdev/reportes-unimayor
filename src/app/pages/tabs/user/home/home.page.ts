@@ -19,11 +19,13 @@ import {
   IonCardSubtitle,
   IonBadge,
   IonRouterLink,
+  IonIcon,
 } from '@ionic/angular/standalone';
 
 import { NoReportsComponent } from '../../../../widget/no-reports/no-reports.component';
 import { RouterLink } from '@angular/router';
 import { Report, ReportsService } from 'src/app/service/reports.service';
+import { LinkCreateReportComponent } from '../../../../witget/link-create-report/link-create-report.component';
 
 @Component({
   selector: 'app-home',
@@ -31,6 +33,7 @@ import { Report, ReportsService } from 'src/app/service/reports.service';
   styleUrls: ['./home.page.scss'],
   standalone: true,
   imports: [
+    IonIcon,
     IonRouterLink,
     IonBadge,
     IonCardSubtitle,
@@ -51,6 +54,7 @@ import { Report, ReportsService } from 'src/app/service/reports.service';
     NoReportsComponent,
     IonListHeader,
     RouterLink,
+    LinkCreateReportComponent,
   ],
 })
 export class HomePage implements OnInit {
