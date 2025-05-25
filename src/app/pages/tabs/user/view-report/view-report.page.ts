@@ -6,8 +6,14 @@ import {
   IonHeader,
   IonTitle,
   IonToolbar,
+  IonLabel,
+  IonGrid,
+  IonRow,
+  IonAvatar,
+  IonCol,
 } from '@ionic/angular/standalone';
 import { ActivatedRoute } from '@angular/router';
+import { ReportsService, Report } from 'src/app/service/reports.service';
 
 @Component({
   selector: 'app-view-report',
@@ -15,6 +21,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./view-report.page.scss'],
   standalone: true,
   imports: [
+    IonCol,
+    IonAvatar,
+    IonRow,
+    IonGrid,
+    IonLabel,
     IonContent,
     IonHeader,
     IonTitle,
@@ -25,11 +36,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ViewReportPage implements OnInit {
   private route = inject(ActivatedRoute);
-  reportId = signal<string | null>('');
+  private reportService = inject(ReportsService);
+
+  report = signal<Report | null>(null);
 
   ngOnInit() {
-    const report = this.route.snapshot.paramMap.get('id');
+    const reportId = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.reportId.set(report);
+    const reportFind = this.reportService.getReport(reportId);
+
+    this.report.set(reportFind);
+
+    console.log(this.report());
   }
 }
