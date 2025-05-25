@@ -28,7 +28,7 @@ export const routes: Routes = [
           ),
       },
       {
-        path: 'view-report',
+        path: 'view-report/:id',
         loadComponent: () =>
           import('./view-report/view-report.page').then(
             (m) => m.ViewReportPage
