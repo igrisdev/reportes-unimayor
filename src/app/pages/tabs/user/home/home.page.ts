@@ -17,10 +17,7 @@ import {
   IonCardTitle,
   IonCardContent,
   IonCardSubtitle,
-  IonButton,
-  IonThumbnail,
   IonBadge,
-  IonNav,
   IonRouterLink,
 } from '@ionic/angular/standalone';
 
@@ -42,15 +39,12 @@ interface Report {
   standalone: true,
   imports: [
     IonRouterLink,
-    IonNav,
     IonBadge,
     IonCardSubtitle,
     IonCardContent,
     IonCardTitle,
     IonCardHeader,
     IonCard,
-    IonButton,
-    IonItem,
     IonLabel,
     IonList,
     IonContent,
@@ -62,20 +56,45 @@ interface Report {
     CommonModule,
     FormsModule,
     NoReportsComponent,
-    IonThumbnail,
     IonListHeader,
     RouterLink,
   ],
 })
 export class HomePage implements OnInit {
-  reports: Report[] = new Array(4).fill({
-    id: 1,
-    location: 'Unimayor',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget consectetur molestie, ipsum ligula eleifend magna, vel convallis augue augue eu eros. Nam eget nisi id nisl ultrices aliquam. Ut euismod, nisl eget consectetur molestie, ipsum ligula eleifend magna, vel convallis augue augue eu eros. Nam eget nisi id nisl ultrices aliquam.',
-    date: '2022-01-01 10:00',
-    status: 'En Proceso',
-  });
+  reports: Report[] = [
+    {
+      id: 1,
+      location: 'Unimayor',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget consectetur molestie, ipsum ligula eleifend magna, vel convallis augue augue eu eros. Nam eget nisi id nisl ultrices aliquam. Ut euismod, nisl eget consectetur molestie, ipsum ligula eleifend magna, vel convallis augue augue eu eros. Nam eget nisi id nisl ultrices aliquam.',
+      date: '2022-01-01 10:00',
+      status: 'En Proceso',
+    },
+    {
+      id: 2,
+      location: 'Unimayor',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget consectetur molestie, ipsum ligula eleifend magna, vel convallis augue augue eu eros. Nam eget nisi id nisl ultrices aliquam. Ut euismod, nisl eget consectetur molestie, ipsum ligula eleifend magna, vel convallis augue augue eu eros. Nam eget nisi id nisl ultrices aliquam.',
+      date: '2022-01-02 10:00',
+      status: 'En Proceso',
+    },
+    {
+      id: 3,
+      location: 'Unimayor',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget consectetur molestie, ipsum ligula eleifend magna, vel convallis augue augue eu eros. Nam eget nisi id nisl ultrices aliquam. Ut euismod, nisl eget consectetur molestie, ipsum ligula eleifend magna, vel convallis augue augue eu eros. Nam eget nisi id nisl ultrices aliquam.',
+      date: '2022-01-03 10:00',
+      status: 'En Proceso',
+    },
+    {
+      id: 4,
+      location: 'Unimayor',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget consectetur molestie, ipsum ligula eleifend magna, vel convallis augue augue eu eros. Nam eget nisi id nisl ultrices aliquam. Ut euismod, nisl eget consectetur molestie, ipsum ligula eleifend magna, vel convallis augue augue eu eros. Nam eget nisi id nisl ultrices aliquam.',
+      date: '2022-01-04 10:00',
+      status: 'En Proceso',
+    },
+  ];
 
   constructor() {}
 

@@ -27,7 +27,7 @@
     @for (report of reports; track report.id) {
 
     <ion-router-link
-      [routerLink]="['/user/view-report', 1]"
+      [routerLink]="['/user/view-report', report.id]"
       style="text-decoration: none; color: inherit"
     >
       <ion-card>
