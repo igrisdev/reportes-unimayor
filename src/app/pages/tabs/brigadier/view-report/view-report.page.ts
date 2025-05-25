@@ -13,6 +13,7 @@ import {
   IonCol,
   IonRouterLink,
   IonIcon,
+  IonButton,
 } from '@ionic/angular/standalone';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ReportsService, Report } from 'src/app/service/reports.service';
@@ -26,6 +27,7 @@ import { HeaderComponent } from '../../../../components_share/header/header.comp
   styleUrls: ['./view-report.page.scss'],
   standalone: true,
   imports: [
+    IonButton,
     IonIcon,
     IonRouterLink,
     IonCol,

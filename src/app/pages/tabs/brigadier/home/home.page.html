@@ -14,27 +14,26 @@
 
     @for (report of reports; track report.id) {
 
-    <ion-router-link
-      [routerLink]="['/brigadier/view-report', report.id]"
-      style="text-decoration: none; color: inherit"
-    >
-      <ion-card>
+    <ion-card>
+      <ion-router-link
+        [routerLink]="['/brigadier/view-report', report.id]"
+        style="text-decoration: none; color: inherit"
+      >
         <ion-card-header>
           <ion-card-title>{{ report.location }}</ion-card-title>
           <ion-card-subtitle>{{ report.date.split(' ')[1] }}</ion-card-subtitle>
         </ion-card-header>
 
         <ion-card-content> {{ report.description }} </ion-card-content>
+      </ion-router-link>
+      <ion-row class="ion-justify-content-between ion-align-items-center">
+        <ion-button color="success" class="ion-margin">Aceptar</ion-button>
 
-        <ion-row class="ion-justify-content-between ion-align-items-center">
-          <ion-button fill="clear">Action 1</ion-button>
-
-          <ion-label class="ion-padding"
-            >{{ report.date.split(' ')[0] }}</ion-label
-          >
-        </ion-row>
-      </ion-card>
-    </ion-router-link>
+        <ion-label class="ion-padding"
+          >{{ report.date.split(' ')[0] }}</ion-label
+        >
+      </ion-row>
+    </ion-card>
     }
   </ion-list>
 </ion-content>
