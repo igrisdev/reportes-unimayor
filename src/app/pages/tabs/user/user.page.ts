@@ -27,13 +27,7 @@ import { time, home, personCircle, addOutline } from 'ionicons/icons';
 export class UserPage implements OnInit {
   public environmentInjector = inject(EnvironmentInjector);
 
-  buttonCreateReport?: boolean;
+  constructor() {}
 
-  constructor(private location: Location) {
-    addIcons({ time, addOutline, home, personCircle });
-  }
-
-  ngOnInit() {
-    this.buttonCreateReport = this.location.path() === '/user/home';
-  }
+  ngOnInit() {}
 }
