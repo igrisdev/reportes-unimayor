@@ -27,7 +27,9 @@ import { time, home, personCircle, addOutline } from 'ionicons/icons';
 export class UserPage implements OnInit {
   public environmentInjector = inject(EnvironmentInjector);
 
-  constructor() {}
+  constructor() {
+    addIcons({ time, addOutline, home, personCircle });
+  }
 
   ngOnInit() {}
 }
