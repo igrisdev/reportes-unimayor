@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { 
-  IonContent, 
-  IonInput, 
-  IonButton, 
-  IonLabel, 
+import {
+  IonContent,
+  IonInput,
+  IonButton,
+  IonLabel,
   IonCheckbox,
-  AlertController 
+  AlertController,
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -17,26 +17,26 @@ import {
   styleUrls: ['./login.page.scss'],
   standalone: true,
   imports: [
-    CommonModule, 
-    FormsModule, 
-    IonContent, 
-    IonInput, 
-    IonButton, 
-    IonLabel, 
-    IonCheckbox
-  ]
+    CommonModule,
+    FormsModule,
+    IonContent,
+    IonInput,
+    IonButton,
+    IonLabel,
+    IonCheckbox,
+  ],
 })
 export class LoginPage implements OnInit {
   credentials = {
     email: '',
     password: '',
-    rememberMe: false
+    rememberMe: false,
   };
 
   constructor(
     private router: Router,
     private alertController: AlertController
-  ) { }
+  ) {}
 
   ngOnInit() {
     // Check if user is already logged in
@@ -49,13 +49,13 @@ export class LoginPage implements OnInit {
   async login() {
     // Here you would implement your actual authentication logic
     // This is just a placeholder example
-    
+
     if (this.credentials.email && this.credentials.password) {
       // Save credentials if remember me is checked
       if (this.credentials.rememberMe) {
         localStorage.setItem('credentials', JSON.stringify(this.credentials));
       }
-      
+
       // Navigate to home or dashboard page after successful login
       this.router.navigate(['/home']);
     } else {
@@ -63,7 +63,7 @@ export class LoginPage implements OnInit {
       const alert = await this.alertController.create({
         header: 'Error',
         message: 'Por favor ingrese un correo y contraseña válidos',
-        buttons: ['OK']
+        buttons: ['OK'],
       });
 
       await alert.present();

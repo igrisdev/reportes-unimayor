@@ -2,7 +2,11 @@
   <div class="login-container">
     <div class="logo-container">
       <div class="logo-box">
-        <img src="assets/logo_unimayor.png" alt="SafeUnimayor Logo" class="logo">
+        <img
+          src="assets/logo_unimayor.png"
+          alt="SafeUnimayor Logo"
+          class="logo"
+        />
       </div>
       <h1 class="app-title">Reportes Unimayor</h1>
     </div>
@@ -10,20 +14,40 @@
     <form (ngSubmit)="login()" #loginForm="ngForm">
       <div class="form-field">
         <ion-label>Correo Institucional</ion-label>
-        <ion-input type="email" placeholder="example@unimayor.edu.co" [(ngModel)]="credentials.email" name="email" required></ion-input>
+        <ion-input
+          type="email"
+          placeholder="example@unimayor.edu.co"
+          [(ngModel)]="credentials.email"
+          name="email"
+          required
+        ></ion-input>
       </div>
 
       <div class="form-field">
         <ion-label>Contraseña</ion-label>
-        <ion-input type="password" placeholder="*****************************" [(ngModel)]="credentials.password" name="password" required></ion-input>
+        <ion-input
+          type="password"
+          placeholder=""
+          [(ngModel)]="credentials.password"
+          name="password"
+          required
+        ></ion-input>
       </div>
 
       <div class="remember-me">
-        <ion-checkbox [(ngModel)]="credentials.rememberMe" name="rememberMe"></ion-checkbox>
+        <ion-checkbox
+          [(ngModel)]="credentials.rememberMe"
+          name="rememberMe"
+        ></ion-checkbox>
         <ion-label>Mantener Sesión Iniciada</ion-label>
       </div>
 
-      <ion-button expand="block" type="submit" [disabled]="!loginForm.valid" class="login-button">
+      <ion-button
+        expand="block"
+        type="submit"
+        [disabled]="!loginForm.valid"
+        class="login-button"
+      >
         Iniciar Sesión
       </ion-button>
     </form>
