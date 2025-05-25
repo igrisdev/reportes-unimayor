@@ -26,6 +26,7 @@ import { NoReportsComponent } from '../../../../widget/no-reports/no-reports.com
 import { RouterLink } from '@angular/router';
 import { Report, ReportsService } from 'src/app/service/reports.service';
 import { LinkCreateReportComponent } from '../../../../witget/link-create-report/link-create-report.component';
+import { HeaderComponent } from '../../../../components_share/header/header.component';
 
 @Component({
   selector: 'app-home',
@@ -55,6 +56,7 @@ import { LinkCreateReportComponent } from '../../../../witget/link-create-report
     IonListHeader,
     RouterLink,
     LinkCreateReportComponent,
+    HeaderComponent,
   ],
 })
 export class HomePage implements OnInit {

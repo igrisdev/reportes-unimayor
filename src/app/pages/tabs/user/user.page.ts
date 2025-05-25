@@ -9,6 +9,7 @@ import {
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { time, home, personCircle, addOutline } from 'ionicons/icons';
+import { HeaderComponent } from '../../../components_share/header/header.component';
 
 @Component({
   selector: 'app-user',
@@ -22,6 +23,7 @@ import { time, home, personCircle, addOutline } from 'ionicons/icons';
     IonTabs,
     CommonModule,
     FormsModule,
+    HeaderComponent,
   ],
 })
 export class UserPage implements OnInit {
