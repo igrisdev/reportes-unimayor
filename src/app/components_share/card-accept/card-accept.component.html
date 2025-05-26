@@ -1,5 +1,5 @@
 <ion-router-link
-  [routerLink]="['/user/view-report', report()?.id]"
+  [routerLink]="['/brigadier/view-report', report()?.id]"
   style="text-decoration: none; color: inherit"
 >
   <article>
@@ -14,7 +14,7 @@
     </main>
 
     <footer>
-      <button (click)="onCardClick($event)">En Proceso</button>
+      <button (click)="onCardClick($event)">Aceptar</button>
 
       <p>{{ report()?.date }}</p>
     </footer>

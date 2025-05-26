@@ -1,8 +1,8 @@
 article {
-  border: 1px solid var(--ion-color-unimayor-primary);
+  border: 1px solid rgb(255, 0, 0);
   padding: 0.8rem;
   border-radius: 0.3rem;
-  background: var(--ion-color-unimayor-primary-opacity);
+  background: rgba(255, 0, 0, 0.1);
   height: 23vh;
   display: flex;
   flex-direction: column;
@@ -43,22 +43,14 @@ article {
     justify-content: space-between;
     align-items: center;
 
-    div {
-      font-size: 0.9rem;
+    button {
+      font-size: 1rem;
       font-weight: 500;
       margin: 0;
-      padding: 0.2rem 0.8rem;
+      padding: 0.4rem 1rem;
       border-radius: 9999999px;
-    }
-
-    .done {
-      background-color: var(--ion-color-unimayor-secondary);
-      color: #fff;
-    }
-
-    .process {
-      background-color: var(--ion-color-unimayor-tertiary);
-      color: var(--ion-color-unimayor-contrast);
+      background: var(--ion-color-unimayor-secondary);
+      color: var(--ion-color-unimayor-light);
     }
 
     p {
