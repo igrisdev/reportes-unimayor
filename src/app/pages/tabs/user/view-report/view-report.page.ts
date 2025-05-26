@@ -1,19 +1,7 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {
-  IonContent,
-  IonHeader,
-  IonTitle,
-  IonToolbar,
-  IonLabel,
-  IonGrid,
-  IonRow,
-  IonAvatar,
-  IonCol,
-  IonRouterLink,
-  IonIcon,
-} from '@ionic/angular/standalone';
+import { IonContent, IonRouterLink, IonIcon } from '@ionic/angular/standalone';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ReportsService, Report } from 'src/app/service/reports.service';
 import { addIcons } from 'ionicons';
@@ -28,15 +16,7 @@ import { HeaderComponent } from '../../../../components_share/header/header.comp
   imports: [
     IonIcon,
     IonRouterLink,
-    IonCol,
-    IonAvatar,
-    IonRow,
-    IonGrid,
-    IonLabel,
     IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
     CommonModule,
     FormsModule,
     RouterLink,

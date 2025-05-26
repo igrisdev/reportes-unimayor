@@ -1,15 +1,37 @@
 <app-header></app-header>
 
 <ion-content>
-  <ion-router-link
-    [routerLink]="['/user/home']"
-    style="text-decoration: none; color: inherit"
-  >
-    <ion-icon aria-hidden="true" name="arrow-back-outline"></ion-icon>
-  </ion-router-link>
+  <section>
+    <header>
+      <button>
+        <ion-router-link
+          [routerLink]="['/user/home']"
+          style="text-decoration: none; color: inherit"
+        >
+          <ion-icon aria-hidden="true" name="arrow-back-outline"></ion-icon>
+        </ion-router-link>
+      </button>
+    </header>
 
-  <ion-label> <h1>{{ report()?.location }}</h1> </ion-label>
-  <ion-label> <h2>{{ report()?.date }}</h2> </ion-label>
-  <ion-label> <h3>{{ report()?.description }}</h3> </ion-label>
-  <ion-label> <h4>{{ report()?.status }}</h4> </ion-label>
+    <div>
+      <header>
+        <section>
+          <h2>{{ report()?.location }}</h2>
+          @if(report()?.status === 'En Proceso') {
+          <div class="process">En Proceso</div>
+          } @if(report()?.status === 'Terminado') {
+          <div class="done">Terminado</div>
+          }
+        </section>
+
+        <section>
+          <p>{{ report()?.date }}</p>
+        </section>
+      </header>
+
+      <main>
+        <p>{{ report()?.description }}</p>
+      </main>
+    </div>
+  </section>
 </ion-content>
