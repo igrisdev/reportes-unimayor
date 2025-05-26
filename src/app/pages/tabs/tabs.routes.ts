@@ -15,7 +15,7 @@ export const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/brigadier',
+        redirectTo: '/user',
         pathMatch: 'full',
       },
     ],
