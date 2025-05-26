@@ -48,6 +48,6 @@ export class ProfilePage implements OnInit {
 
   logout() {
     // Add your logout logic here
-    this.router.navigate(['/login']);
+    this.router.navigate(['/brigadier/home']);
   }
 }
