@@ -5,7 +5,6 @@
   <article>
     <header>
       <h3>{{ report()?.location }}</h3>
-
       <p>{{ report()?.date }}</p>
     </header>
 
@@ -14,7 +13,7 @@
     </main>
 
     <footer>
-      <button (click)="onCardClick($event)">Aceptar</button>
+      <button (click)="onCardClick($event, report()?.id)">Aceptar</button>
 
       <p>{{ report()?.date }}</p>
     </footer>
