@@ -5,13 +5,25 @@ import {
   IonAvatar,
   IonRow,
   IonCol,
+  IonContent,
+  IonToolbar,
+  IonTitle,
 } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  imports: [IonCol, IonRow, IonAvatar, IonGrid, IonHeader],
+  imports: [
+    IonTitle,
+    IonToolbar,
+    IonContent,
+    IonCol,
+    IonRow,
+    IonAvatar,
+    IonGrid,
+    IonHeader,
+  ],
 })
 export class HeaderComponent implements OnInit {
   constructor() {}
