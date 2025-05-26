@@ -24,6 +24,7 @@ import { ReportsService } from 'src/app/service/reports.service';
 import { RouterLink } from '@angular/router';
 import { NoReportsComponent } from '../../../../widget/no-reports/no-reports.component';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
+import { CardStatusComponent } from '../../../../components_share/card-status/card-status.component';
 
 @Component({
   selector: 'app-history',
@@ -31,28 +32,11 @@ import { HeaderComponent } from '../../../../components_share/header/header.comp
   styleUrls: ['./history.page.scss'],
   standalone: true,
   imports: [
-    IonList,
-    IonRouterLink,
-    IonBadge,
-    IonCardContent,
-    IonCardSubtitle,
-    IonCardTitle,
-    IonCardHeader,
-    IonCard,
-    IonLabel,
-    IonListHeader,
-    IonAvatar,
-    IonCol,
-    IonRow,
-    IonGrid,
     IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
     CommonModule,
-    RouterLink,
     NoReportsComponent,
     HeaderComponent,
+    CardStatusComponent,
   ],
 })
 export class HistoryPage implements OnInit {
