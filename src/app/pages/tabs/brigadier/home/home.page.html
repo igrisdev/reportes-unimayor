@@ -1,37 +1,19 @@
 <app-header></app-header>
 
-<ion-content class="ion-padding">
+<ion-content>
   @defer (when reports.length <= 0) {
   <app-no-reports></app-no-reports>
   }
 
-  <div class="section-title">
+  <section>
+    @defer (when reports.length > 0) {
     <h2>Reportes Pendientes</h2>
-  </div>
 
-  @for (report of reports; track report.id) {
-  <ion-card class="report-card" (click)="onCardClick($event, report.id)">
-    <div class="card-content-wrapper">
-      <div class="card-header">
-        <div class="location-title">{{ report.location }}</div>
-        <div class="time">{{ report.date.split(' ')[1] }}</div>
-      </div>
-
-      <div class="card-content">{{ report.description }}</div>
+    <div>
+      @for (report of reports; track report.id) {
+      <app-card-accept [report]="report"></app-card-accept>
+      }
     </div>
-
-    <div class="card-footer">
-      <ion-button
-        (click)="onAcceptReport($event, report.id)"
-        class="accept-button"
-        shape="round"
-        size="small"
-        >Aceptar</ion-button
-      >
-      <div class="date-label">{{ report.date.split(' ')[0] }}</div>
-    </div>
-  </ion-card>
-  }
+    }
+  </section>
 </ion-content>
-
-<app-link-create-report></app-link-create-report>
