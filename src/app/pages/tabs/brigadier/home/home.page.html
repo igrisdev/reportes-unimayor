@@ -19,9 +19,13 @@
 
       <div class="card-content">{{ report.description }}</div>
     </div>
-    
+
     <div class="card-footer">
-      <ion-button (click)="onAcceptReport($event, report.id)" class="accept-button" shape="round" size="small"
+      <ion-button
+        (click)="onAcceptReport($event, report.id)"
+        class="accept-button"
+        shape="round"
+        size="small"
         >Aceptar</ion-button
       >
       <div class="date-label">{{ report.date.split(' ')[0] }}</div>
