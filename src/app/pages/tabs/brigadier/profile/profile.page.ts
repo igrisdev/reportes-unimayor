@@ -29,7 +29,6 @@ export class ProfilePage implements OnInit {
   ngOnInit() {}
 
   logout() {
-    // Add your logout logic here
     this.router.navigate(['/user/home']);
   }
 }
