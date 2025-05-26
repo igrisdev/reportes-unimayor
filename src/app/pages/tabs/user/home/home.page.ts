@@ -25,7 +25,7 @@ import { IonContent } from '@ionic/angular/standalone';
   ],
 })
 export class HomePage implements OnInit {
-  reports = inject(ReportsService).getReports();
+  reports = inject(ReportsService).getReportsInProgress();
 
   constructor() {}
 

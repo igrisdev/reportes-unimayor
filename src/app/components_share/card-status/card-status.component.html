@@ -14,7 +14,11 @@
     </main>
 
     <footer>
-      <div>{{ report()?.status }}</div>
+      @if (report()?.status === 'En Proceso') {
+      <div class="process">En Proceso</div>
+      } @if (report()?.status === 'Terminado') {
+      <div class="done">Terminado</div>
+      }
 
       <p>{{ report()?.date }}</p>
     </footer>

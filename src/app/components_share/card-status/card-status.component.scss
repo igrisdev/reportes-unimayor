@@ -3,7 +3,7 @@ article {
   padding: 0.8rem;
   border-radius: 0.3rem;
   background: var(--ion-color-unimayor-primary-opacity);
-  height: 25vh;
+  height: 23vh;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -45,12 +45,20 @@ article {
 
     div {
       font-size: 0.9rem;
-      font-weight: 400;
+      font-weight: 500;
       margin: 0;
       padding: 0.2rem 0.8rem;
+      border-radius: 9999999px;
+    }
+
+    .done {
       background-color: var(--ion-color-unimayor-secondary);
       color: #fff;
-      border-radius: 9999999px;
+    }
+
+    .process {
+      background-color: var(--ion-color-unimayor-tertiary);
+      color: var(--ion-color-unimayor-contrast);
     }
 
     p {
