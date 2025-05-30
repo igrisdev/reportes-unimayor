@@ -8,7 +8,6 @@
   <section>
     @defer (when reports.length > 0) {
     <h2>Historial de Reportes</h2>
-
     <div>
       @for (report of reports; track report.id) {
       <app-card-status [report]="report"></app-card-status>
