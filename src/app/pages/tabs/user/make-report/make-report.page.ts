@@ -6,15 +6,7 @@ import {
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
-import {
-  IonContent,
-  IonItem,
-  IonLabel,
-  IonInput,
-  IonTextarea,
-  IonButton,
-  IonNote,
-} from '@ionic/angular/standalone';
+import { IonContent } from '@ionic/angular/standalone';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
 
 @Component({
@@ -22,18 +14,7 @@ import { HeaderComponent } from '../../../../components_share/header/header.comp
   templateUrl: './make-report.page.html',
   styleUrls: ['./make-report.page.scss'],
   standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    IonContent,
-    IonItem,
-    IonLabel,
-    IonInput,
-    IonTextarea,
-    IonButton,
-    IonNote,
-    HeaderComponent,
-  ],
+  imports: [CommonModule, ReactiveFormsModule, IonContent, HeaderComponent],
 })
 export class MakeReportPage implements OnInit {
   reportForm: FormGroup;

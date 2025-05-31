@@ -2,8 +2,38 @@
 
 <ion-content>
   <form>
-    <section>
-      <div>hola</div>
-    </section>
+    <div>
+      <section>
+        <header>
+          <h2>Ubicación</h2>
+
+          <div>
+            <button>Escanear</button>
+            <button>Escribir</button>
+          </div>
+        </header>
+        <main>
+          <select name="location" id="location">
+            <option value="1">Bicentenario</option>
+            <option value="2">Bicentenario 2</option>
+          </select>
+        </main>
+      </section>
+      <section>
+        <header>
+          <h2>Descripción</h2>
+
+          <div>
+            <button>Escanear</button>
+            <button>Escribir</button>
+          </div>
+        </header>
+        <main>
+          <textarea name="description" id="description"></textarea>
+        </main>
+      </section>
+    </div>
+
+    <button>Enviar</button>
   </form>
 </ion-content>

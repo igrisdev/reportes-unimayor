@@ -15,7 +15,6 @@ import {
   addOutline,
   alertCircle,
 } from 'ionicons/icons';
-import { HeaderComponent } from '../../../components_share/header/header.component';
 
 @Component({
   selector: 'app-brigadier',
@@ -29,7 +28,6 @@ import { HeaderComponent } from '../../../components_share/header/header.compone
     IonTabs,
     CommonModule,
     FormsModule,
-    HeaderComponent,
   ],
 })
 export class BrigadierPage implements OnInit {
