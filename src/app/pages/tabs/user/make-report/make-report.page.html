@@ -13,10 +13,22 @@
           </div>
         </header>
         <main>
-          <select name="location" id="location">
+          <!-- <select name="location" id="location">
             <option value="1">Bicentenario</option>
             <option value="2">Bicentenario 2</option>
-          </select>
+          </select> -->
+
+          <input
+            type="text"
+            id="location"
+            list="location-suggestions"
+            placeholder="Bicentenario salon #"
+          />
+
+          <datalist id="location-suggestions">
+            <option value="1">Bicentenario</option>
+            <option value="2">Bicentenario 2</option>
+          </datalist>
         </main>
       </section>
       <section>
