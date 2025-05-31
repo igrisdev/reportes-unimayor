@@ -21,13 +21,6 @@ export const routes: Routes = [
           import('./profile/profile.page').then((m) => m.ProfilePage),
       },
       {
-        path: 'make-report',
-        loadComponent: () =>
-          import('./make-report/make-report.page').then(
-            (m) => m.MakeReportPage
-          ),
-      },
-      {
         path: 'view-report/:id',
         loadComponent: () =>
           import('./view-report/view-report.page').then(
