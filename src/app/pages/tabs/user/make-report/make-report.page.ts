@@ -1,11 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { IonContent } from '@ionic/angular/standalone';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
 
@@ -16,22 +11,15 @@ import { HeaderComponent } from '../../../../components_share/header/header.comp
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, IonContent, HeaderComponent],
 })
-export class MakeReportPage implements OnInit {
-  reportForm: FormGroup;
+export class MakeReportPage {
+  fb = inject(FormBuilder);
 
-  constructor(private fb: FormBuilder) {
-    this.reportForm = this.fb.group({
-      location: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-    });
-  }
+  form = this.fb.group({
+    location: ['', [Validators.required]],
+    description: ['', [Validators.required]],
+  });
 
-  ngOnInit() {}
-
-  onSubmit() {
-    if (this.reportForm.valid) {
-      console.log(this.reportForm.value);
-      // Here you can add your submit logic
-    }
+  handleSubmit() {
+    console.log(this.form.value);
   }
 }

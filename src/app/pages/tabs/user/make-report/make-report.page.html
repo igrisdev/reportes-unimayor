@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <ion-content>
-  <form>
+  <form [formGroup]="form" (ngSubmit)="handleSubmit()">
     <div>
       <section>
         <header>
@@ -23,6 +23,7 @@
             id="location"
             list="location-suggestions"
             placeholder="Bicentenario salon #"
+            formControlName="location"
           />
 
           <datalist id="location-suggestions">
@@ -45,6 +46,7 @@
             name="description"
             id="description"
             placeholder="Escribe aquí tu reporte"
+            formControlName="description"
           ></textarea>
         </main>
       </section>
