@@ -1,15 +1,24 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { IonContent } from '@ionic/angular/standalone';
+import { IonContent, IonRouterLink, IonIcon } from '@ionic/angular/standalone';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-make-report',
   templateUrl: './make-report.page.html',
   styleUrls: ['./make-report.page.scss'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, IonContent, HeaderComponent],
+  imports: [
+    IonIcon,
+    IonRouterLink,
+    CommonModule,
+    ReactiveFormsModule,
+    IonContent,
+    HeaderComponent,
+    RouterLink,
+  ],
 })
 export class MakeReportPage {
   fb = inject(FormBuilder);

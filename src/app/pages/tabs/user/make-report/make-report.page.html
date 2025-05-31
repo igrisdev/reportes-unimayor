@@ -1,57 +1,70 @@
 <app-header></app-header>
 
 <ion-content>
-  <form [formGroup]="form" (ngSubmit)="handleSubmit()">
-    <div>
-      <section>
-        <header>
-          <h2>Ubicación</h2>
+  <section>
+    <header>
+      <button>
+        <ion-router-link
+          [routerLink]="['/user/home']"
+          style="text-decoration: none; color: inherit"
+        >
+          <ion-icon aria-hidden="true" name="arrow-back-outline"></ion-icon>
+        </ion-router-link>
+      </button>
+    </header>
 
-          <div>
-            <button>Escanear</button>
-            <button class="active">Escribir</button>
-          </div>
-        </header>
-        <main>
-          <!-- <select name="location" id="location">
-            <option value="1">Bicentenario</option>
-            <option value="2">Bicentenario 2</option>
-          </select> -->
+    <form [formGroup]="form" (ngSubmit)="handleSubmit()">
+      <div>
+        <section>
+          <header>
+            <h2>Ubicación</h2>
 
-          <input
-            type="text"
-            id="location"
-            list="location-suggestions"
-            placeholder="Bicentenario salon #"
-            formControlName="location"
-          />
+            <div>
+              <button>Escanear</button>
+              <button class="active">Escribir</button>
+            </div>
+          </header>
+          <main>
+            <!-- <select name="location" id="location">
+              <option value="1">Bicentenario</option>
+              <option value="2">Bicentenario 2</option>
+            </select> -->
 
-          <datalist id="location-suggestions">
-            <option value="1">Bicentenario</option>
-            <option value="2">Bicentenario 2</option>
-          </datalist>
-        </main>
-      </section>
-      <section>
-        <header>
-          <h2>Descripción</h2>
+            <input
+              type="text"
+              id="location"
+              list="location-suggestions"
+              placeholder="Bicentenario salon #"
+              formControlName="location"
+            />
 
-          <div>
-            <button>Escanear</button>
-            <button class="active">Escribir</button>
-          </div>
-        </header>
-        <main>
-          <textarea
-            name="description"
-            id="description"
-            placeholder="Escribe aquí tu reporte"
-            formControlName="description"
-          ></textarea>
-        </main>
-      </section>
-    </div>
+            <datalist id="location-suggestions">
+              <option value="1">Bicentenario</option>
+              <option value="2">Bicentenario 2</option>
+            </datalist>
+          </main>
+        </section>
+        <section>
+          <header>
+            <h2>Descripción</h2>
 
-    <button>Enviar</button>
-  </form>
+            <div>
+              <button>Escanear</button>
+              <button class="active">Escribir</button>
+            </div>
+          </header>
+          <main>
+            <textarea
+              name="description"
+              id="description"
+              placeholder="Escribe aquí tu reporte"
+              formControlName="description"
+            ></textarea>
+          </main>
+        </section>
+      </div>
+
+      <button>Enviar</button>
+    </form>
+  </section>
 </ion-content>
