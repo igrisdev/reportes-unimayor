@@ -6,6 +6,7 @@ import { addIcons } from 'ionicons';
 import { logOutOutline } from 'ionicons/icons';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-profile',
@@ -22,6 +23,7 @@ import { Router } from '@angular/router';
   ],
 })
 export class ProfilePage implements OnInit {
+  loginService = inject(LoginService);
   router = inject(Router);
 
   constructor() {
@@ -32,6 +34,7 @@ export class ProfilePage implements OnInit {
 
   logout() {
     localStorage.removeItem('token');
+    this.loginService.setBrigadier(false);
     this.router.navigate(['/login']);
   }
 }

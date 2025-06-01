@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonHeader, IonToolbar } from '@ionic/angular/standalone';
 import { decodeJWT } from 'src/app/guard/login.guard';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +11,10 @@ import { decodeJWT } from 'src/app/guard/login.guard';
   imports: [IonToolbar, IonHeader],
 })
 export class HeaderComponent {
+  loginService = inject(LoginService);
   router = inject(Router);
 
-  isBrigadier = signal<boolean>(false);
+  isBrigadier = this.loginService.isBrigadier;
   rol = signal<string>('');
 
   constructor() {
@@ -33,7 +35,7 @@ export class HeaderComponent {
 
     const isRol = decoded.EsBrigadista === 'true' ? true : false;
 
-    this.isBrigadier.set(isRol);
+    this.loginService.setBrigadier(isRol);
   }
 
   getPath() {
