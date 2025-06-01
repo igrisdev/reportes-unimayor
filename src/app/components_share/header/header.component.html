@@ -10,8 +10,10 @@
       </section>
 
       <section class="btn-section">
-        <p>Usuario</p>
+        @if (brigadier() == true) {
+        <p>{{ rol() }}</p>
         <button>-</button>
+        }
       </section>
     </div>
   </ion-toolbar>
