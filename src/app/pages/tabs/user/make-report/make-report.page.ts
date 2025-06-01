@@ -4,6 +4,8 @@ import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { IonContent, IonRouterLink, IonIcon } from '@ionic/angular/standalone';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
 import { RouterLink } from '@angular/router';
+import { addIcons } from 'ionicons';
+import { arrowBackOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-make-report',
@@ -30,5 +32,11 @@ export class MakeReportPage {
 
   handleSubmit() {
     console.log(this.form.value);
+  }
+
+  constructor() {
+    addIcons({
+      arrowBackOutline,
+    });
   }
 }
