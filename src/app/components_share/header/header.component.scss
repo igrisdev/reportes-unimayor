@@ -70,7 +70,8 @@ ion-toolbar {
         font-weight: 500;
       }
 
-      & button {
+      & ion-router-link,
+      button {
         font-size: 0.8rem;
         font-weight: 500;
         width: 2rem;

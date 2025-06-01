@@ -3,24 +3,19 @@
     <div>
       <section class="logo">
         <div>
-          <img src="/assets/logo_unimayor.png" />
+          <img src="/assets/logo_unimayor.png" alt="Logo Unimayor" />
         </div>
-
         <h1>Reportes Unimayor</h1>
       </section>
 
       <section class="btn-section">
-        @if (brigadier() == true) {
+        @if (isBrigadier()) {
+
         <p>{{ rol() }}</p>
-        <button>-</button>
+
+        <button (click)="handleRedirect()"></button>
         }
       </section>
     </div>
   </ion-toolbar>
 </ion-header>
-
-<!-- <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Header</ion-title>
-  </ion-toolbar>
-</ion-header> -->
