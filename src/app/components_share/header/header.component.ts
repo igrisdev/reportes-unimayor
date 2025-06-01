@@ -1,17 +1,13 @@
 import { Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  IonHeader,
-  IonToolbar,
-  IonRouterLink,
-} from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar } from '@ionic/angular/standalone';
 import { decodeJWT } from 'src/app/guard/login.guard';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  imports: [IonRouterLink, IonToolbar, IonHeader],
+  imports: [IonToolbar, IonHeader],
 })
 export class HeaderComponent {
   router = inject(Router);
