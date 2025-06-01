@@ -21,14 +21,13 @@ export class ReportsService {
   reports = signal([]);
 
   constructor() {
-    console.log('---------------------------------------------');
     this.getReports();
   }
 
   getReports() {
     this._http.get(this._url + 'reportes').subscribe({
       next: (data) => {
-        // this.reports.set([]);
+        console.log(data);
       },
       error: (err) => {
         console.log(err);
