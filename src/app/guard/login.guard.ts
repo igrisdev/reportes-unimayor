@@ -2,7 +2,7 @@ import { CanActivateFn } from '@angular/router';
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 
-function decodeJWT(token: string): any | null {
+export function decodeJWT(token: string): any | null {
   if (!token) return null;
 
   try {
@@ -38,10 +38,10 @@ export const authGuard: CanActivateFn = (route, state) => {
     return false;
   }
 
-  if (state.url.startsWith('/user') && isBrigadier) {
-    router.navigate(['/brigadier']);
-    return false;
-  }
+  // if (state.url.startsWith('/user') && isBrigadier) {
+  //   router.navigate(['/brigadier']);
+  //   return false;
+  // }
 
   return true;
 };

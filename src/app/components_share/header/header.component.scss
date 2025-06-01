@@ -21,3 +21,59 @@
 //     font-weight: bold;
 //   }
 // }
+
+ion-toolbar {
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    padding: 0 1rem;
+
+    & > section.logo {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+
+      & > div {
+        display: grid;
+        place-items: center;
+        width: 2rem;
+        height: auto;
+
+        & > img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      & > h1 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0;
+      }
+    }
+
+    & > section.btn-section {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+
+      & > p {
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      & button {
+        font-size: 0.8rem;
+        font-weight: 500;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 0.5rem;
+        background: var(--ion-color-unimayor-primary);
+        color: var(--ion-color-unimayor-contrast);
+      }
+    }
+  }
+}

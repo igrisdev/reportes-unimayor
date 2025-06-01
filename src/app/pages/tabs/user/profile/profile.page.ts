@@ -22,7 +22,7 @@ import { Router } from '@angular/router';
   ],
 })
 export class ProfilePage implements OnInit {
-  // router = inject(Router);
+  router = inject(Router);
 
   constructor() {
     addIcons({ logOutOutline });
@@ -31,7 +31,7 @@ export class ProfilePage implements OnInit {
   ngOnInit() {}
 
   logout() {
-    // localStorage.removeItem('token');
-    // this.router.navigate(['/login']);
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
   }
 }
