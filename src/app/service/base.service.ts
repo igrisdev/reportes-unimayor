@@ -12,4 +12,8 @@ export class BaseService {
   get(url: string) {
     return this._http.get(url);
   }
+
+  post(url: string, body: any) {
+    return this._http.post(url, body);
+  }
 }

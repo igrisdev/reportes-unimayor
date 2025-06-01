@@ -1,8 +1,9 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, Inject, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IonContent, AlertController } from '@ionic/angular/standalone';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ import { IonContent, AlertController } from '@ionic/angular/standalone';
   imports: [CommonModule, IonContent, ReactiveFormsModule],
 })
 export class LoginPage implements OnInit {
+  login = inject(LoginService);
   fg = inject(FormBuilder);
 
   LoginForm = this.fg.group({
@@ -22,11 +24,14 @@ export class LoginPage implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.login.isLogin();
+  }
 
-  login() {
-    console.log(this.LoginForm.value);
+  handleLogin() {
+    this.login.login(
+      this.LoginForm.value.email ?? '',
+      this.LoginForm.value.password ?? ''
+    );
   }
 }
-
-// this.router.navigate(['/home']);
