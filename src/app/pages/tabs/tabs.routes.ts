@@ -16,6 +16,11 @@ export const routes: Routes = [
         loadChildren: () =>
           import('./brigadier/brigadier.routes').then((m) => m.routes),
       },
+      {
+        path: '',
+        redirectTo: '/login',
+        pathMatch: 'full',
+      },
     ],
   },
 ];

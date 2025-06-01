@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonButton, IonIcon } from '@ionic/angular/standalone';
@@ -22,14 +22,16 @@ import { Router } from '@angular/router';
   ],
 })
 export class ProfilePage implements OnInit {
-  constructor(private router: Router) {
+  // router = inject(Router);
+
+  constructor() {
     addIcons({ logOutOutline });
   }
 
   ngOnInit() {}
 
   logout() {
-    // Add your logout logic here
-    this.router.navigate(['/brigadier/home']);
+    // localStorage.removeItem('token');
+    // this.router.navigate(['/login']);
   }
 }
