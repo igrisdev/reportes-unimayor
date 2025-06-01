@@ -7,11 +7,12 @@
       <h1>Reportes Unimayor</h1>
     </section>
 
-    <form (ngSubmit)="login()">
+    <form [formGroup]="LoginForm" (ngSubmit)="login()">
       <div>
         <label for="email">Correo Institucional</label>
         <input
           type="email"
+          formControlName="email"
           placeholder="example@unimayor.edu.co"
           name="email"
           required
@@ -20,11 +21,22 @@
 
       <div>
         <label>Contraseña</label>
-        <input type="password" placeholder="example" name="password" required />
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="example"
+          name="password"
+          required
+        />
       </div>
 
       <section class="rememberMe">
-        <input type="checkbox" name="rememberMe" id="rememberMe" />
+        <input
+          type="checkbox"
+          formControlName="rememberMe"
+          name="rememberMe"
+          id="rememberMe"
+        />
         <label>Mantener Sesión Iniciada</label>
       </section>
 

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IonContent, AlertController } from '@ionic/angular/standalone';
 
@@ -9,49 +9,24 @@ import { IonContent, AlertController } from '@ionic/angular/standalone';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, IonContent],
+  imports: [CommonModule, IonContent, ReactiveFormsModule],
 })
 export class LoginPage implements OnInit {
-  credentials = {
-    email: '',
-    password: '',
-    rememberMe: false,
-  };
+  fg = inject(FormBuilder);
 
-  constructor(
-    private router: Router,
-    private alertController: AlertController
-  ) {}
+  LoginForm = this.fg.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required]],
+    rememberMe: [false],
+  });
 
-  ngOnInit() {
-    // Check if user is already logged in
-    const savedCredentials = localStorage.getItem('credentials');
-    if (savedCredentials) {
-      // Auto-login or redirect as needed
-    }
-  }
+  constructor() {}
 
-  async login() {
-    // Here you would implement your actual authentication logic
-    // This is just a placeholder example
+  ngOnInit() {}
 
-    if (this.credentials.email && this.credentials.password) {
-      // Save credentials if remember me is checked
-      if (this.credentials.rememberMe) {
-        localStorage.setItem('credentials', JSON.stringify(this.credentials));
-      }
-
-      // Navigate to home or dashboard page after successful login
-      this.router.navigate(['/home']);
-    } else {
-      // Show error alert
-      const alert = await this.alertController.create({
-        header: 'Error',
-        message: 'Por favor ingrese un correo y contraseña válidos',
-        buttons: ['OK'],
-      });
-
-      await alert.present();
-    }
+  login() {
+    console.log(this.LoginForm.value);
   }
 }
+
+// this.router.navigate(['/home']);
