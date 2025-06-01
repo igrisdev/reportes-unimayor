@@ -46,6 +46,8 @@ export class ViewReportPage implements OnInit {
 
     const reportFind = this.reportService.getReport(reportId);
 
-    this.report.set(reportFind);
+    // this.report.set(reportFind);
+
+    return [];
   }
 }
