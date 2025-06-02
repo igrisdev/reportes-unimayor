@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -24,12 +24,17 @@ import { IonContent } from '@ionic/angular/standalone';
     CardStatusComponent,
   ],
 })
-export class HomePage implements OnInit {
-  reports = inject(ReportsService).getReportsInProgress();
+export class HomePage {
+  private reportService = inject(ReportsService);
 
-  constructor() {}
+  reports = signal<any[]>([]);
 
-  ngOnInit() {
-    console.log(this.reports());
+  constructor() {
+    const reportsFromServiceSignal = this.reportService.getReportsInProgress();
+
+    effect(() => {
+      const currentFilteredReports = reportsFromServiceSignal();
+      this.reports.set(currentFilteredReports);
+    });
   }
 }
