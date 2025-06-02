@@ -49,7 +49,9 @@ export class ReportsService {
   }
 
   getReports() {
+    // return computed(() => {
     return this.reports();
+    // });
   }
 
   getReport(id: number) {
@@ -64,5 +66,21 @@ export class ReportsService {
       const allReports = this.reports();
       return allReports.filter((report) => report.estado === 'Pendiente');
     });
+  }
+
+  createReport(location: number, description: string) {
+    const path = environment.API_URL + 'reportes';
+
+    this._http
+      .postWithToken(path, { idUbicacion: location, descripcion: description })
+      .subscribe({
+        next: (data) => {
+          const newData = data as Report;
+          this.reports.set([...this.reports(), newData]);
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
   }
 }

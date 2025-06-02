@@ -25,4 +25,8 @@ export class BaseService {
   post(url: string, body: any) {
     return this._http.post(url, body);
   }
+
+  postWithToken(url: string, body: any) {
+    return this._http.post(url, body, { headers: this.getHeaders() });
+  }
 }
