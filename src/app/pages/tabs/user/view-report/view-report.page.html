@@ -16,21 +16,21 @@
     <div>
       <header>
         <section>
-          <h2>{{ report()?.location }}</h2>
-          @if(report()?.status === 'En Proceso') {
+          <!-- <h2>{{ report()?.location }}</h2> -->
+          @if(report()?.estado === 'En Proceso') {
           <div class="process">En Proceso</div>
-          } @if(report()?.status === 'Terminado') {
+          } @if(report()?.estado === 'Terminado') {
           <div class="done">Terminado</div>
           }
         </section>
 
         <section>
-          <p>{{ report()?.date }}</p>
+          <!-- <p>{{ report()?.date }}</p> -->
         </section>
       </header>
 
       <main>
-        <p>{{ report()?.description }}</p>
+        <p>{{ report()?.descripcion }}</p>
       </main>
     </div>
   </section>

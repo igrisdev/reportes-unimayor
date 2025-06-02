@@ -1,14 +1,31 @@
-import { inject, Injectable, OnInit, signal } from '@angular/core';
+import {
+  computed,
+  inject,
+  Injectable,
+  OnInit,
+  Signal,
+  signal,
+} from '@angular/core';
 import { BaseService } from './base.service';
 
 import { environment } from 'src/environments/environment';
 
 export interface Report {
-  id: number;
-  location: string;
-  description: string;
-  date: string;
-  status: string;
+  idReporte: number;
+  ubicacion: Location;
+  descripcion: string;
+  estado: string;
+}
+
+export interface Location {
+  idUbicacion: number;
+  nombre: string;
+  descripcion: string;
+  sede: string;
+  edificio: string;
+  salon: string;
+  informacionAdicional: string;
+  reportes?: string;
 }
 
 @Injectable({
@@ -18,16 +35,17 @@ export class ReportsService {
   private _http = inject(BaseService);
   private _url = environment.API_URL;
 
-  reports = signal([]);
+  reports = signal<Report[]>([]);
 
   constructor() {
     this.getReports();
   }
 
   getReports() {
-    this._http.get(this._url + 'reportes').subscribe({
+    this._http.getWithToken(this._url + 'reportes').subscribe({
       next: (data) => {
-        console.log(data);
+        const newData = data as Report[];
+        this.reports.set(newData);
       },
       error: (err) => {
         console.log(err);
@@ -42,8 +60,11 @@ export class ReportsService {
     return [];
   }
 
-  getReportsInProgress(): Report[] {
-    // return this.reports.filter((report) => report.status === 'En Proceso');
-    return [];
+  getReportsInProgress() {
+    return computed(() => {
+      const allReports = this.reports();
+
+      return allReports;
+    });
   }
 }

@@ -3,5 +3,12 @@
     "@ionic/angular/common",
     "@ionic/angular"
   ],
-  "cSpell.words": ["Brigadista", "unimayor"]
+  "cSpell.words": [
+    "Brigadista",
+    "descripcion",
+    "informacion",
+    "ubicacion",
+    "Ubicacion",
+    "unimayor"
+  ]
 }

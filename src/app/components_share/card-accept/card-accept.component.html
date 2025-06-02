@@ -1,21 +1,23 @@
 <ion-router-link
-  [routerLink]="['/brigadier/view-report', report()?.id]"
+  [routerLink]="['/brigadier/view-report', report()?.idReporte]"
   style="text-decoration: none; color: inherit"
 >
   <article>
     <header>
-      <h3>{{ report()?.location }}</h3>
-      <p>{{ report()?.date }}</p>
+      <!-- <h3>{{ report()?.location }}</h3> -->
+      <!-- <p>{{ report()?.date }}</p> -->
     </header>
 
     <main>
-      <p>{{ report()?.description }}</p>
+      <p>{{ report()?.descripcion }}</p>
     </main>
 
     <footer>
-      <button (click)="onCardClick($event, report()?.id)">Aceptar</button>
+      <button (click)="onCardClick($event, report()?.idReporte)">
+        Aceptar
+      </button>
 
-      <p>{{ report()?.date }}</p>
+      <!-- <p>{{ report()?.date }}</p> -->
     </footer>
   </article>
 </ion-router-link>

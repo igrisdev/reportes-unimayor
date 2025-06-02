@@ -9,8 +9,17 @@ export class BaseService {
 
   constructor() {}
 
+  private getHeaders() {
+    const token = localStorage.getItem('token');
+    return { Authorization: `Bearer ${token}` };
+  }
+
   get(url: string) {
     return this._http.get(url);
+  }
+
+  getWithToken(url: string) {
+    return this._http.get(url, { headers: this.getHeaders() });
   }
 
   post(url: string, body: any) {

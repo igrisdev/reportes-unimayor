@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -24,7 +24,7 @@ import { CardAcceptComponent } from '../../../../components_share/card-accept/ca
   ],
 })
 export class HomePage implements OnInit {
-  reports: Report[] = inject(ReportsService).getReportsInProgress();
+  reports: Signal<Report[]> = inject(ReportsService).getReportsInProgress();
 
   constructor(private router: Router) {}
 

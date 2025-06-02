@@ -1,26 +1,26 @@
 <ion-router-link
-  [routerLink]="['/user/view-report', report()?.id]"
+  [routerLink]="['/user/view-report', report()?.idReporte]"
   style="text-decoration: none; color: inherit"
 >
   <article>
     <header>
-      <h3>{{ report()?.location }}</h3>
+      <!-- <h3>{{ report()?.location }}</h3> -->
 
-      <p>{{ report()?.date }}</p>
+      <!-- <p>{{ report()?.date }}</p> -->
     </header>
 
     <main>
-      <p>{{ report()?.description }}</p>
+      <p>{{ report()?.descripcion }}</p>
     </main>
 
     <footer>
-      @if (report()?.status === 'En Proceso') {
+      @if (report()?.estado === 'En Proceso') {
       <div class="process">En Proceso</div>
-      } @if (report()?.status === 'Terminado') {
+      } @if (report()?.estado === 'Terminado') {
       <div class="done">Terminado</div>
       }
 
-      <p>{{ report()?.date }}</p>
+      <!-- <p>{{ report()?.date }}</p> -->
     </footer>
   </article>
 </ion-router-link>

@@ -10,7 +10,7 @@
     <h2>Reportes Pendientes</h2>
 
     <div>
-      @for (report of reports; track report.id) {
+      @for (report of reports(); track report.idReporte) {
       <app-card-accept [report]="report"></app-card-accept>
       }
     </div>

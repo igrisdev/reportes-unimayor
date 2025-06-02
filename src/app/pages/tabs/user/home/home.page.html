@@ -10,7 +10,7 @@
     <h2>Reportes En Curso</h2>
 
     <div>
-      @for (report of reports; track report.id) {
+      @for (report of reports(); track report.idReporte) {
       <app-card-status [report]="report"></app-card-status>
       }
     </div>
