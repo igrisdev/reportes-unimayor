@@ -1,12 +1,12 @@
 <app-header></app-header>
 
 <ion-content>
-  @defer (when reports().length <= 0) {
+  @if (reports().length <= 0) {
   <app-no-reports></app-no-reports>
   }
 
   <section>
-    @defer (when reports().length > 0) {
+    @if (reports().length > 0) {
     <h2>Reportes En Curso</h2>
 
     <div>
