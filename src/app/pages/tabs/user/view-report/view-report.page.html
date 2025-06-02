@@ -16,21 +16,21 @@
     <div>
       <header>
         <section>
-          <!-- <h2>{{ report()?.ubicacion?.nombre }}</h2> -->
-          <!-- @if(report()?.estado === 'Pendiente') {
+          <h2>{{ report()?.ubicacion?.nombre }}</h2>
+          @if(report()?.estado === 'Pendiente') {
           <div class="process">Pendiente</div>
           } @if(report()?.estado === 'Terminado') {
           <div class="done">Terminado</div>
-          } -->
+          }
         </section>
 
         <section>
-          <!-- <p>{{ report()?.date }}</p> -->
+          <p>{{ report()?.horaCreacion }} / {{ report()?.fechaCreacion }}</p>
         </section>
       </header>
 
       <main>
-        <!-- <p>{{ report()?.descripcion }}</p> -->
+        <p>{{ report()?.descripcion }}</p>
       </main>
     </div>
   </section>

@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonRouterLink, IonIcon } from '@ionic/angular/standalone';
@@ -27,9 +27,16 @@ export class ViewReportPage {
   private route = inject(ActivatedRoute);
   private reportService = inject(ReportsService);
 
+  public report = signal<Report | undefined>(undefined);
+
   constructor() {
     addIcons({ arrowBackOutline });
+
     const reportId = Number(this.route.snapshot.paramMap.get('id'));
-    const reportFind = this.reportService.getReport(reportId);
+
+    effect(() => {
+      const reportFind = this.reportService.getReport(reportId);
+      this.report.set(reportFind());
+    });
   }
 }
