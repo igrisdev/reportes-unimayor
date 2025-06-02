@@ -1,4 +1,4 @@
-import { Component, effect, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -25,16 +25,5 @@ import { IonContent } from '@ionic/angular/standalone';
   ],
 })
 export class HomePage {
-  private reportService = inject(ReportsService);
-
-  reports = signal<any[]>([]);
-
-  constructor() {
-    const reportsFromServiceSignal = this.reportService.getReportsInProgress();
-
-    effect(() => {
-      const currentFilteredReports = reportsFromServiceSignal();
-      this.reports.set(currentFilteredReports);
-    });
-  }
+  reports = inject(ReportsService).getReportsInProgress();
 }

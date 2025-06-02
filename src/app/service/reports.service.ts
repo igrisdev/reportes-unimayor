@@ -60,8 +60,6 @@ export class ReportsService {
   getReport(id: number) {
     return computed(() => {
       const findReport = this.reports();
-      console.log('--------_____________');
-      // console.log(findReport);
       return findReport.find((report) => report.idReporte === id);
     });
   }
@@ -70,7 +68,6 @@ export class ReportsService {
     return computed(() => {
       const allReports = this.reports();
       return allReports.filter((report) => report.estado === 'Pendiente');
-      // return allReports;
     });
   }
 }

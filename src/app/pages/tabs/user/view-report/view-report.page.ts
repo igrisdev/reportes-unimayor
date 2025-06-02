@@ -27,13 +27,9 @@ export class ViewReportPage {
   private route = inject(ActivatedRoute);
   private reportService = inject(ReportsService);
 
-  // report = signal();
-
   constructor() {
     addIcons({ arrowBackOutline });
     const reportId = Number(this.route.snapshot.paramMap.get('id'));
     const reportFind = this.reportService.getReport(reportId);
-
-    console.log(reportFind);
   }
 }
