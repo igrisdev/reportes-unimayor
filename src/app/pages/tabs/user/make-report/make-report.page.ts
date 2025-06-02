@@ -6,6 +6,7 @@ import { HeaderComponent } from '../../../../components_share/header/header.comp
 import { RouterLink } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { arrowBackOutline } from 'ionicons/icons';
+import { LocationService } from 'src/app/service/location/location.service';
 
 @Component({
   selector: 'app-make-report',
@@ -23,7 +24,8 @@ import { arrowBackOutline } from 'ionicons/icons';
   ],
 })
 export class MakeReportPage {
-  fb = inject(FormBuilder);
+  private fb = inject(FormBuilder);
+  locations = inject(LocationService).getLocations();
 
   form = this.fb.group({
     location: ['', [Validators.required]],

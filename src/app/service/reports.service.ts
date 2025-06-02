@@ -33,10 +33,10 @@ export class ReportsService {
   reports = signal<Report[]>([]);
 
   constructor() {
-    this.getReports();
+    this.loadReports();
   }
 
-  getReports() {
+  private loadReports() {
     this._http.getWithToken(this._url + 'reportes').subscribe({
       next: (data) => {
         const newData = data as Report[];
@@ -46,8 +46,10 @@ export class ReportsService {
         console.log(err);
       },
     });
+  }
 
-    return [];
+  getReports() {
+    return this.reports();
   }
 
   getReport(id: number) {

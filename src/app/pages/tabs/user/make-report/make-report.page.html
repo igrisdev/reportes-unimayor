@@ -26,8 +26,9 @@
           </header>
           <main>
             <!-- <select name="location" id="location">
+              @for (location of locations(); track $index) {
               <option value="1">Bicentenario</option>
-              <option value="2">Bicentenario 2</option>
+              }
             </select> -->
 
             <input
@@ -36,11 +37,13 @@
               list="location-suggestions"
               placeholder="Bicentenario salon #"
               formControlName="location"
+              autofocus
             />
 
             <datalist id="location-suggestions">
-              <option value="1">Bicentenario</option>
-              <option value="2">Bicentenario 2</option>
+              @for (location of locations(); track $index) {
+              <option value="1">{{ location.nombre }}</option>
+              }
             </datalist>
           </main>
         </section>
