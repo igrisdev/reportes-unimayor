@@ -63,8 +63,8 @@ export class ReportsService {
   getReportsInProgress() {
     return computed(() => {
       const allReports = this.reports();
-      // return allReports.filter((report) => report.estado === 'Pendiente');
-      return allReports;
+      return allReports.filter((report) => report.estado === 'Pendiente');
+      // return allReports;
     });
   }
 }
