@@ -7,7 +7,7 @@ import { HeaderComponent } from '../../../../components_share/header/header.comp
 import { CardStatusComponent } from '../../../../components_share/card-status/card-status.component';
 import { LinkCreateReportComponent } from 'src/app/widget/link-create-report/link-create-report.component';
 import { ReportsService } from 'src/app/service/reports.service';
-import { IonContent, IonSpinner } from '@ionic/angular/standalone';
+import { IonContent } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-home',

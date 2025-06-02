@@ -6,7 +6,7 @@
     <header>
       <h3>{{ report()?.ubicacion?.nombre }}</h3>
 
-      <!-- <p>{{ report()?.date }}</p> -->
+      <p>{{ report()?.horaCreacion }}</p>
     </header>
 
     <main>
@@ -14,13 +14,13 @@
     </main>
 
     <footer>
-      @if (report()?.estado === 'En Proceso') {
-      <div class="process">En Proceso</div>
+      @if (report()?.estado === 'Pendiente') {
+      <div class="process">Pendiente</div>
       } @if (report()?.estado === 'Terminado') {
       <div class="done">Terminado</div>
       }
 
-      <!-- <p>{{ report()?.date }}</p> -->
+      <p>{{ report()?.fechaCreacion }}</p>
     </footer>
   </article>
 </ion-router-link>

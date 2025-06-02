@@ -15,6 +15,8 @@ export interface Report {
   ubicacion: Location;
   descripcion: string;
   estado: string;
+  fechaCreacion: string;
+  horaCreacion: string;
 }
 
 export interface Location {
@@ -45,6 +47,7 @@ export class ReportsService {
     this._http.getWithToken(this._url + 'reportes').subscribe({
       next: (data) => {
         const newData = data as Report[];
+        console.log(newData);
         this.reports.set(newData);
       },
       error: (err) => {
