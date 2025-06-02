@@ -47,7 +47,6 @@ export class ReportsService {
     this._http.getWithToken(this._url + 'reportes').subscribe({
       next: (data) => {
         const newData = data as Report[];
-        console.log(newData);
         this.reports.set(newData);
       },
       error: (err) => {
@@ -58,9 +57,13 @@ export class ReportsService {
     return [];
   }
 
-  getReport(id: number): Report | [] {
-    // return this.reports.find((report) => report.id === id) || null;
-    return [];
+  getReport(id: number) {
+    return computed(() => {
+      const findReport = this.reports();
+      console.log('--------_____________');
+      // console.log(findReport);
+      return findReport.find((report) => report.idReporte === id);
+    });
   }
 
   getReportsInProgress() {

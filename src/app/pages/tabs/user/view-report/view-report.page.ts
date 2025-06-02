@@ -23,23 +23,17 @@ import { HeaderComponent } from '../../../../components_share/header/header.comp
     HeaderComponent,
   ],
 })
-export class ViewReportPage implements OnInit {
+export class ViewReportPage {
   private route = inject(ActivatedRoute);
   private reportService = inject(ReportsService);
 
-  report = signal<Report | null>(null);
+  // report = signal();
 
   constructor() {
     addIcons({ arrowBackOutline });
-  }
-
-  ngOnInit() {
     const reportId = Number(this.route.snapshot.paramMap.get('id'));
-
     const reportFind = this.reportService.getReport(reportId);
 
-    // this.report.set(reportFind);
-
-    return [];
+    console.log(reportFind);
   }
 }
