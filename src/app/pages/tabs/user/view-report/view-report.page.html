@@ -34,7 +34,9 @@
       </main>
 
       <footer>
-        <button>Cancelar</button>
+        @if(report()?.estado === 'Pendiente') {
+        <button (click)="handleCancelReport()">Cancelar</button>
+        }
       </footer>
     </div>
   </section>

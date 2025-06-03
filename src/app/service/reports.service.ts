@@ -2,6 +2,7 @@ import { computed, inject, Injectable, signal } from '@angular/core';
 import { BaseService } from './base.service';
 
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 export interface Report {
   idReporte: number;
@@ -29,6 +30,7 @@ export interface Location {
 export class ReportsService {
   private _http = inject(BaseService);
   private _url = environment.API_URL;
+  private router = inject(Router);
 
   reports = signal<Report[]>([]);
 
