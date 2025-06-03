@@ -26,7 +26,14 @@ export class BaseService {
     return this._http.post(url, body);
   }
 
-  postWithToken(url: string, body: any) {
+  postWithToken(
+    url: string,
+    body: { idUbicacion: number; descripcion: string }
+  ) {
     return this._http.post(url, body, { headers: this.getHeaders() });
+  }
+
+  putWithToken(url: string, body: any) {
+    return this._http.put(url, body, { headers: this.getHeaders() });
   }
 }

@@ -83,4 +83,26 @@ export class ReportsService {
         },
       });
   }
+
+  cancelReport(id: number) {
+    const path = environment.API_URL + 'reportes/cancelar/' + id;
+
+    this._http.putWithToken(path, { estado: 'Cancelado' }).subscribe({
+      next: (data) => {
+        const newData = data as Report;
+
+        this.reports.set(
+          this.reports().map((report) => {
+            if (report.idReporte === id) {
+              return newData;
+            }
+            return report;
+          })
+        );
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
 }

@@ -7,6 +7,7 @@ import { RouterLink } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { arrowBackOutline } from 'ionicons/icons';
 import { LocationService } from 'src/app/service/location/location.service';
+import { ReportsService } from 'src/app/service/reports.service';
 
 @Component({
   selector: 'app-make-report',
@@ -25,7 +26,9 @@ import { LocationService } from 'src/app/service/location/location.service';
 })
 export class MakeReportPage {
   private fb = inject(FormBuilder);
-  locations = inject(LocationService).getLocations();
+  private reportsService = inject(ReportsService);
+
+  readonly locations = inject(LocationService).getLocations();
 
   form = this.fb.group({
     location: ['', [Validators.required]],
@@ -33,7 +36,10 @@ export class MakeReportPage {
   });
 
   handleSubmit() {
-    console.log(this.form.value);
+    this.reportsService.createReport(
+      Number(this.form.value.location),
+      this.form.value.description!
+    );
   }
 
   constructor() {
