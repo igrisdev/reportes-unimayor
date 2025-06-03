@@ -76,7 +76,9 @@ export class ReportsService {
       .subscribe({
         next: (data) => {
           const newData = data as Report;
-          this.reports.set([...this.reports(), newData]);
+          this.reports.update((reports) => {
+            return [...reports, newData];
+          });
         },
         error: (err) => {
           console.log(err);
@@ -91,14 +93,14 @@ export class ReportsService {
       next: (data) => {
         const newData = data as Report;
 
-        this.reports.set(
-          this.reports().map((report) => {
+        this.reports.update((reports) => {
+          return reports.map((report) => {
             if (report.idReporte === id) {
               return newData;
             }
             return report;
-          })
-        );
+          });
+        });
       },
       error: (err) => {
         console.log(err);
