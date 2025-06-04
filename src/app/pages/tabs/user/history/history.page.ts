@@ -1,27 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  IonContent,
-  IonHeader,
-  IonTitle,
-  IonToolbar,
-  IonGrid,
-  IonRow,
-  IonCol,
-  IonAvatar,
-  IonListHeader,
-  IonLabel,
-  IonCard,
-  IonCardHeader,
-  IonCardTitle,
-  IonCardSubtitle,
-  IonCardContent,
-  IonBadge,
-  IonRouterLink,
-  IonList,
-} from '@ionic/angular/standalone';
+import { IonContent } from '@ionic/angular/standalone';
 import { ReportsService } from 'src/app/service/reports.service';
-import { RouterLink } from '@angular/router';
 import { NoReportsComponent } from '../../../../widget/no-reports/no-reports.component';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
 import { CardStatusComponent } from '../../../../components_share/card-status/card-status.component';

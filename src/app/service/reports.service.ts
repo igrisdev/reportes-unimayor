@@ -30,7 +30,6 @@ export interface Location {
 export class ReportsService {
   private _http = inject(BaseService);
   private _url = environment.API_URL;
-  private router = inject(Router);
 
   reports = signal<Report[]>([]);
 
@@ -51,9 +50,9 @@ export class ReportsService {
   }
 
   getReports() {
-    // return computed(() => {
-    return this.reports();
-    // });
+    return computed(() => {
+      return this.reports();
+    });
   }
 
   getReport(id: number) {

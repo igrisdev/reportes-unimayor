@@ -22,7 +22,7 @@ import { NoReportsComponent } from '../../../../widget/no-reports/no-reports.com
 export class HistoryPage implements OnInit {
   private reportService = inject(ReportsService);
 
-  reports = this.reportService.getReports() || [];
+  reports = this.reportService.getReports();
 
   constructor() {}
 

@@ -1,16 +1,16 @@
 <app-header></app-header>
 
 <ion-content>
-  @defer (when reports.length <= 0) {
+  @defer (when reports().length <= 0) {
   <app-no-reports></app-no-reports>
   }
 
   <section>
-    @defer (when reports.length > 0) {
+    @defer (when reports().length > 0) {
     <h2>Historial de Reportes</h2>
 
     <div>
-      @for (report of reports; track report) {
+      @for (report of reports(); track report) {
       <app-card-status [report]="report"></app-card-status>
       }
     </div>
