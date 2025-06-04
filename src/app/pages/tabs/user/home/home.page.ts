@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -25,5 +25,15 @@ import { IonContent } from '@ionic/angular/standalone';
   ],
 })
 export class HomePage {
-  reports = inject(ReportsService).getReportsInProgress();
+  private reportsService = inject(ReportsService);
+
+  reports: any = [];
+
+  constructor() {
+    effect(() => {
+      this.reportsService.loadReports();
+      this.reports = this.reportsService.getReportsInProgress();
+      // console.log('reports', this.reports());
+    });
+  }
 }

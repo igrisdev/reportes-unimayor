@@ -37,7 +37,7 @@ export class ReportsService {
     this.loadReports();
   }
 
-  private loadReports() {
+  loadReports() {
     this._http.getWithToken(this._url + 'reportes').subscribe({
       next: (data) => {
         const newData = data as Report[];
@@ -47,6 +47,10 @@ export class ReportsService {
         console.log(err);
       },
     });
+  }
+
+  cleanReports() {
+    this.reports.set([]);
   }
 
   getReports() {

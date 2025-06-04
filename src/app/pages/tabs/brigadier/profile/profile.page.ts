@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonButton, IonIcon } from '@ionic/angular/standalone';
@@ -6,6 +6,8 @@ import { addIcons } from 'ionicons';
 import { logOutOutline } from 'ionicons/icons';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/service/login.service';
+import { ReportsService } from 'src/app/service/reports.service';
 
 @Component({
   selector: 'app-profile',
@@ -22,13 +24,21 @@ import { Router } from '@angular/router';
   ],
 })
 export class ProfilePage implements OnInit {
-  constructor(private router: Router) {
+  private loginService = inject(LoginService);
+  private reportService = inject(ReportsService);
+
+  router = inject(Router);
+
+  constructor() {
     addIcons({ logOutOutline });
   }
 
   ngOnInit() {}
 
   logout() {
-    this.router.navigate(['/user/home']);
+    localStorage.removeItem('token');
+    this.loginService.setBrigadier(false);
+    this.reportService.cleanReports();
+    this.router.navigate(['/login']);
   }
 }
