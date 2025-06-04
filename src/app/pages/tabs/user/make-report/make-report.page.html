@@ -67,7 +67,13 @@
         </section>
       </div>
 
-      <button>Enviar</button>
+      <button type="submit" [disabled]="isSubmitting()">
+        @if (isSubmitting()) {
+          <ion-spinner></ion-spinner>
+        } @else {
+          Enviar
+        }
+      </button>
     </form>
   </section>
 </ion-content>
