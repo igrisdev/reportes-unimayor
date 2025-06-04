@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, effect, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonContent } from '@ionic/angular/standalone';
 import { ReportsService } from 'src/app/service/reports.service';
@@ -24,9 +24,11 @@ import { LinkCreateReportComponent } from '../../../../widget/link-create-report
 export class HistoryPage implements OnInit {
   private reportService = inject(ReportsService);
 
-  reports = this.reportService.getReports();
+  reports: any = [];
 
-  constructor() {}
+  constructor() {
+    this.reports = this.reportService.getReports();
+  }
 
   ngOnInit() {}
 }
