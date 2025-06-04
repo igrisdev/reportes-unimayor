@@ -1,7 +1,6 @@
-import { Component, effect, inject } from '@angular/core';
+import { Component, OnInit, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { NoReportsComponent } from '../../../../widget/no-reports/no-reports.component';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
 import { CardStatusComponent } from '../../../../components_share/card-status/card-status.component';
@@ -24,16 +23,30 @@ import { IonContent } from '@ionic/angular/standalone';
     CardStatusComponent,
   ],
 })
-export class HomePage {
+export class HomePage implements OnInit {
   private reportsService = inject(ReportsService);
-
-  reports: any = [];
+  reports = signal<any>([]);
 
   constructor() {
     effect(() => {
-      this.reportsService.loadReports();
-      this.reports = this.reportsService.getReportsInProgress();
-      // console.log('reports', this.reports());
+      const reports = this.reportsService.getReportsInProgress();
+      this.reports.set(reports());
     });
+  }
+
+  async ngOnInit() {
+    await this.loadReports();
+  }
+
+  ionViewWillEnter() {
+    this.loadReports();
+  }
+
+  private async loadReports() {
+    try {
+      this.reportsService.loadReports();
+    } catch (error) {
+      console.error('Error loading reports:', error);
+    }
   }
 }
