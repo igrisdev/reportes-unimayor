@@ -1,5 +1,6 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { BaseService } from './base.service';
+import { firstValueFrom } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 
@@ -36,16 +37,18 @@ export class ReportsService {
     this.loadReports();
   }
 
-  loadReports() {
-    this._http.getWithToken(this._url + 'reportes').subscribe({
-      next: (data) => {
-        const newData = data as Report[];
-        this.reports.set(newData);
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
+  async loadReports() {
+    try {
+      const data = await firstValueFrom(
+        this._http.getWithToken(this._url + 'reportes')
+      );
+      const newData = data as Report[];
+      this.reports.set(newData);
+      return newData;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
   }
 
   cleanReports() {
