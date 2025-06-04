@@ -25,7 +25,6 @@ import { HeaderComponent } from '../../../../components_share/header/header.comp
 })
 export class ViewReportPage {
   private route = inject(ActivatedRoute);
-  private router = inject(Router);
   private reportService = inject(ReportsService);
 
   public report = signal<Report | undefined>(undefined);

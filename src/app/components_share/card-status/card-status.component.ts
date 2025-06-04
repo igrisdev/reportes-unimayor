@@ -1,4 +1,4 @@
-import { Component, input, OnInit } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IonRouterLink } from '@ionic/angular/standalone';
 import { Report } from 'src/app/service/reports.service';
@@ -9,10 +9,6 @@ import { Report } from 'src/app/service/reports.service';
   styleUrls: ['./card-status.component.scss'],
   imports: [IonRouterLink, RouterLink],
 })
-export class CardStatusComponent implements OnInit {
+export class CardStatusComponent {
   readonly report = input<Report>();
-
-  constructor() {}
-
-  ngOnInit() {}
 }
