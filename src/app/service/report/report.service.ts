@@ -44,7 +44,7 @@ export class ReportService {
   createReport(location: number, description: string) {
     const path = this._url + 'reportes';
 
-    return this._http.postWithToken(path + 'reportes', {
+    return this._http.postWithToken(path, {
       idUbicacion: location,
       descripcion: description,
     });

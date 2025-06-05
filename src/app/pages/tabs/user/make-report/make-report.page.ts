@@ -13,7 +13,6 @@ import { ReportService } from 'src/app/service/report/report.service';
   selector: 'app-make-report',
   templateUrl: './make-report.page.html',
   styleUrls: ['./make-report.page.scss'],
-  standalone: true,
   imports: [
     IonIcon,
     IonRouterLink,
@@ -43,6 +42,7 @@ export class MakeReportPage {
   }
 
   handleSubmit() {
+    console.log(this.form.value);
     this.reportService
       .createReport(
         Number(this.form.value.location),
@@ -51,8 +51,8 @@ export class MakeReportPage {
       .subscribe({
         next: (data: any) => {
           console.log(data);
-          if (data.status === 201) {
-            // this.router.navigate(['/user/home']);
+          if (data.status == 200) {
+            this.router.navigate(['/user/home']);
           }
         },
         error: (err) => {
