@@ -30,7 +30,7 @@ export class ViewReportPage {
   private reportService = inject(ReportService);
   private reportId = Number(this.route.snapshot.paramMap.get('id'));
 
-  report = signal<any>([]);
+  readonly report = signal<any>([]);
 
   constructor() {
     addIcons({ arrowBackOutline });
