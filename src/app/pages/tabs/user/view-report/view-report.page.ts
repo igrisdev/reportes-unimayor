@@ -26,7 +26,8 @@ import { ReportService } from 'src/app/service/report/report.service';
 })
 export class ViewReportPage {
   private route = inject(ActivatedRoute);
-  private reportsService = inject(ReportService);
+  private router = inject(Router);
+  private reportService = inject(ReportService);
   private reportId = Number(this.route.snapshot.paramMap.get('id'));
 
   report = signal<any>([]);
@@ -36,16 +37,34 @@ export class ViewReportPage {
   }
 
   handleCancelReport() {
-    // this.reportService.cancelReport(this.reportId);
+    this.reportService.cancelReport(this.reportId).subscribe({
+      next: (data: any) => {
+        if (data.status === 200) {
+          this.router.navigate(['/user/home']);
+        }
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
   ngOnInit() {
-    // this.loadReports();
+    this.loadReport();
   }
 
   ionViewWillEnter() {
     // this.loadReports();
   }
 
-  private async loadReport() {}
+  private async loadReport() {
+    this.reportService.getReport(this.reportId).subscribe({
+      next: (data: any) => {
+        this.report.set(data);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
 }
