@@ -66,15 +66,21 @@ export class ViewReportPage {
     this.loadReport();
   }
 
-  getPath() {
-    const path = this.router.url.split('/');
-    return path;
-  }
-
   private async loadReport() {
-    console.log(this.getPath());
-
     this.reportBrigadierService.getAllReportsBrigadier().subscribe({
+      next: (data: any) => {
+        const reportFind = data.find(
+          (report: any) => report.idReporte == this.reportId
+        );
+
+        this.report.set(reportFind);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+
+    this.reportBrigadierService.getReportAcceptedBrigadier().subscribe({
       next: (data: any) => {
         const reportFind = data.find(
           (report: any) => report.idReporte == this.reportId
