@@ -6,7 +6,6 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { arrowBackOutline } from 'ionicons/icons';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
-import { ReportService } from 'src/app/service/report/report.service';
 import { ReportBrigadierService } from 'src/app/service/report-brigadier/report-brigadier.service';
 
 @Component({
@@ -27,7 +26,6 @@ import { ReportBrigadierService } from 'src/app/service/report-brigadier/report-
 export class ViewReportPage {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
-  private reportService = inject(ReportService);
   private reportBrigadierService = inject(ReportBrigadierService);
   private reportId = Number(this.route.snapshot.paramMap.get('id'));
 
@@ -40,11 +38,12 @@ export class ViewReportPage {
   handleAcceptReport() {
     this.reportBrigadierService.acceptedReport(this.reportId).subscribe({
       next: (data: any) => {
+        console.log(data);
         if (data.status === 200) {
         }
       },
       error: (err) => {
-        this.router.navigate(['/user/home']);
+        // this.router.navigate(['/user/home']);
         console.log(err);
       },
     });
@@ -67,10 +66,21 @@ export class ViewReportPage {
     this.loadReport();
   }
 
+  getPath() {
+    const path = this.router.url.split('/');
+    return path;
+  }
+
   private async loadReport() {
-    this.reportService.getReport(this.reportId).subscribe({
+    console.log(this.getPath());
+
+    this.reportBrigadierService.getAllReportsBrigadier().subscribe({
       next: (data: any) => {
-        this.report.set(data);
+        const reportFind = data.find(
+          (report: any) => report.idReporte == this.reportId
+        );
+
+        this.report.set(reportFind);
       },
       error: (err) => {
         console.log(err);

@@ -33,7 +33,11 @@ export class BaseService {
     return this._http.post(url, body, { headers: this.getHeaders() });
   }
 
-  putWithToken(url: string, body: any) {
-    return this._http.put(url, body, { headers: this.getHeaders() });
+  putWithToken(url: string, body?: any) {
+    if (body) {
+      return this._http.put(url, body, { headers: this.getHeaders() });
+    }
+
+    return this._http.put(url, { headers: this.getHeaders() });
   }
 }

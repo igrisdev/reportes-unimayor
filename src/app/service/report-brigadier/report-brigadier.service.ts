@@ -24,7 +24,7 @@ export class ReportBrigadierService {
   acceptedReport(id: number) {
     const path = this._url + 'brigadista/reportes/aceptar/' + id;
 
-    return this._http.putWithToken(path, { estado: 'En proceso' });
+    return this._http.putWithToken(path);
   }
 
   finalizeReport(id: number) {
