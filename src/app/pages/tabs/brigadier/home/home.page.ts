@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NoReportsComponent } from '../../../../widget/no-reports/no-reports.component';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
-import { CardStatusComponent } from '../../../../components_share/card-status/card-status.component';
 import { LinkCreateReportComponent } from 'src/app/widget/link-create-report/link-create-report.component';
 import { IonContent } from '@ionic/angular/standalone';
-import { Report, ReportService } from 'src/app/service/report/report.service';
+import { ReportService } from 'src/app/service/report/report.service';
+import { CardAcceptComponent } from '../../../../components_share/card-accept/card-accept.component';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +20,7 @@ import { Report, ReportService } from 'src/app/service/report/report.service';
     NoReportsComponent,
     LinkCreateReportComponent,
     HeaderComponent,
-    CardStatusComponent,
+    CardAcceptComponent,
   ],
 })
 export class HomePage implements OnInit {
@@ -33,6 +33,7 @@ export class HomePage implements OnInit {
 
   ionViewWillEnter() {
     this.loadReports();
+    console.log('Brigadier -------------------------------');
   }
 
   private async loadReports() {

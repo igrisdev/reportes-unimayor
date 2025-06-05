@@ -1,6 +1,7 @@
 import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IonRouterLink } from '@ionic/angular/standalone';
+import { Report } from 'src/app/service/report/report.service';
 
 @Component({
   selector: 'app-card-status',
@@ -9,5 +10,5 @@ import { IonRouterLink } from '@ionic/angular/standalone';
   imports: [IonRouterLink, RouterLink],
 })
 export class CardStatusComponent {
-  readonly report = input();
+  readonly report = input<Report>();
 }

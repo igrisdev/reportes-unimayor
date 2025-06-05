@@ -1,7 +1,7 @@
 import { Component, input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IonRouterLink } from '@ionic/angular/standalone';
-import { Report } from 'src/app/service/reports.service';
+import { Report } from 'src/app/service/report/report.service';
 
 @Component({
   selector: 'app-card-accept',
@@ -17,8 +17,7 @@ export class CardAcceptComponent implements OnInit {
   ngOnInit() {}
 
   onCardClick(event: Event, reportId: number | undefined | null) {
-    event.stopPropagation(); // Esto evita que el evento click se propague al router-link
-    event.preventDefault(); // Esto previene cualquier comportamiento por defecto
-    // Tu lógica para manejar el click del botón aquí
+    event.stopPropagation();
+    event.preventDefault();
   }
 }
