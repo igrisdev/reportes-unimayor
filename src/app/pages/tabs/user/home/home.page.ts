@@ -42,8 +42,6 @@ export class HomePage implements OnInit {
           (report: any) => report.estado === 'Pendiente'
         );
 
-        console.log(reportProcess);
-
         this.reports.set(reportProcess);
       },
       error: (err) => {

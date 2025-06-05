@@ -7,6 +7,7 @@ import { ReportsService, Report } from 'src/app/service/reports.service';
 import { addIcons } from 'ionicons';
 import { arrowBackOutline } from 'ionicons/icons';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
+import { ReportService } from 'src/app/service/report/report.service';
 
 @Component({
   selector: 'app-view-report',
@@ -25,22 +26,26 @@ import { HeaderComponent } from '../../../../components_share/header/header.comp
 })
 export class ViewReportPage {
   private route = inject(ActivatedRoute);
-  private reportService = inject(ReportsService);
-
-  public report = signal<Report | undefined>(undefined);
-
+  private reportsService = inject(ReportService);
   private reportId = Number(this.route.snapshot.paramMap.get('id'));
+
+  report = signal<any>([]);
 
   constructor() {
     addIcons({ arrowBackOutline });
-
-    effect(() => {
-      const reportFind = this.reportService.getReport(this.reportId);
-      this.report.set(reportFind());
-    });
   }
 
   handleCancelReport() {
-    this.reportService.cancelReport(this.reportId);
+    // this.reportService.cancelReport(this.reportId);
   }
+
+  ngOnInit() {
+    // this.loadReports();
+  }
+
+  ionViewWillEnter() {
+    // this.loadReports();
+  }
+
+  private async loadReport() {}
 }
