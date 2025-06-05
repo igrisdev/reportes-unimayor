@@ -1,9 +1,8 @@
-import { Component, OnInit, effect, inject, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonRouterLink, IonIcon } from '@ionic/angular/standalone';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { ReportsService, Report } from 'src/app/service/reports.service';
 import { addIcons } from 'ionicons';
 import { arrowBackOutline } from 'ionicons/icons';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
@@ -40,10 +39,10 @@ export class ViewReportPage {
     this.reportService.cancelReport(this.reportId).subscribe({
       next: (data: any) => {
         if (data.status === 200) {
-          this.router.navigate(['/user/home']);
         }
       },
       error: (err) => {
+        this.router.navigate(['/user/home']);
         console.log(err);
       },
     });
