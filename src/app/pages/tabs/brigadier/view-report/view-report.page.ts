@@ -7,6 +7,7 @@ import { addIcons } from 'ionicons';
 import { arrowBackOutline } from 'ionicons/icons';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
 import { ReportBrigadierService } from 'src/app/service/report-brigadier/report-brigadier.service';
+import { map, of, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-view-report-brigadier',
@@ -66,31 +67,33 @@ export class ViewReportPage {
     this.loadReport();
   }
 
-  private async loadReport() {
-    this.reportBrigadierService.getAllReportsBrigadier().subscribe({
-      next: (data: any) => {
-        const reportFind = data.find(
-          (report: any) => report.idReporte == this.reportId
-        );
-
-        this.report.set(reportFind);
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
-
-    this.reportBrigadierService.getReportAcceptedBrigadier().subscribe({
-      next: (data: any) => {
-        const reportFind = data.find(
-          (report: any) => report.idReporte == this.reportId
-        );
-
-        this.report.set(reportFind);
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
+  private loadReport() {
+    this.reportBrigadierService
+      .getAllReportsBrigadier()
+      .pipe(
+        map((data: any) =>
+          data.find((report: any) => report.idReporte == this.reportId)
+        ),
+        switchMap((reportFind: any) => {
+          if (reportFind) {
+            return of(reportFind);
+          }
+          return this.reportBrigadierService
+            .getReportAcceptedBrigadier()
+            .pipe(
+              map((data: any) =>
+                data.find((report: any) => report.idReporte == this.reportId)
+              )
+            );
+        })
+      )
+      .subscribe({
+        next: (finalReport: any) => {
+          this.report.set(finalReport);
+        },
+        error: (err) => {
+          console.error('Error al cargar el reporte:', err);
+        },
+      });
   }
 }
