@@ -9,7 +9,7 @@ import { ReportService } from 'src/app/service/report/report.service';
 import { CardAcceptComponent } from '../../../../components_share/card-accept/card-accept.component';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-home-brigadier',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,

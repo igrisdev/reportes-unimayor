@@ -9,7 +9,7 @@ import { HeaderComponent } from '../../../../components_share/header/header.comp
 import { ReportService } from 'src/app/service/report/report.service';
 
 @Component({
-  selector: 'app-view-report',
+  selector: 'app-view-report-brigadier',
   templateUrl: './view-report.page.html',
   styleUrls: ['./view-report.page.scss'],
   standalone: true,

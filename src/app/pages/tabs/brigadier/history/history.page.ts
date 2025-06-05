@@ -8,7 +8,7 @@ import { LinkCreateReportComponent } from '../../../../widget/link-create-report
 import { ReportService } from 'src/app/service/report/report.service';
 
 @Component({
-  selector: 'app-history',
+  selector: 'app-history-brigadier',
   templateUrl: './history.page.html',
   styleUrls: ['./history.page.scss'],
   standalone: true,

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
 
 @Component({
-  selector: 'app-profile',
+  selector: 'app-profile-brigadier',
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
   standalone: true,
