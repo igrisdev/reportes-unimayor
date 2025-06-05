@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { IonContent, IonRouterLink, IonIcon } from '@ionic/angular/standalone';
@@ -42,21 +42,15 @@ export class MakeReportPage {
   }
 
   handleSubmit() {
-    console.log(this.form.value);
     this.reportService
       .createReport(
         Number(this.form.value.location),
         this.form.value.description!
       )
       .subscribe({
-        next: (data: any) => {
-          console.log(data);
-          if (data.status == 200) {
-            this.router.navigate(['/user/home']);
-          }
-        },
+        next: (data: any) => {},
         error: (err) => {
-          console.log(err);
+          this.router.navigate(['/user/home']);
         },
       });
   }
