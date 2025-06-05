@@ -27,15 +27,13 @@ export class HomePage implements OnInit {
   private reportsService = inject(ReportService);
   reports = signal<any>([]);
 
-  constructor() {}
-
   ngOnInit() {
     this.loadReports();
   }
 
-  // ionViewWillEnter() {
-  //   this.loadReports();
-  // }
+  ionViewWillEnter() {
+    this.loadReports();
+  }
 
   private async loadReports() {
     this.reportsService.getAllReports().subscribe({
@@ -43,6 +41,8 @@ export class HomePage implements OnInit {
         const reportProcess = data.filter(
           (report: any) => report.estado === 'Pendiente'
         );
+
+        console.log(reportProcess);
 
         this.reports.set(reportProcess);
       },
