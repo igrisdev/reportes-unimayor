@@ -1,12 +1,11 @@
-import { Component, OnInit, effect, inject, signal } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NoReportsComponent } from '../../../../widget/no-reports/no-reports.component';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
-import { LinkCreateReportComponent } from 'src/app/widget/link-create-report/link-create-report.component';
 import { IonContent } from '@ionic/angular/standalone';
-import { ReportService } from 'src/app/service/report/report.service';
 import { CardAcceptComponent } from '../../../../components_share/card-accept/card-accept.component';
+import { ReportBrigadierService } from 'src/app/service/report-brigadier/report-brigadier.service';
 
 @Component({
   selector: 'app-home-brigadier',
@@ -18,13 +17,12 @@ import { CardAcceptComponent } from '../../../../components_share/card-accept/ca
     CommonModule,
     FormsModule,
     NoReportsComponent,
-    LinkCreateReportComponent,
     HeaderComponent,
     CardAcceptComponent,
   ],
 })
 export class HomePage implements OnInit {
-  private reportsService = inject(ReportService);
+  private reportsService = inject(ReportBrigadierService);
   reports = signal<any>([]);
 
   ngOnInit() {
@@ -33,17 +31,12 @@ export class HomePage implements OnInit {
 
   ionViewWillEnter() {
     this.loadReports();
-    console.log('Brigadier -------------------------------');
   }
 
   private async loadReports() {
-    this.reportsService.getAllReports().subscribe({
+    this.reportsService.getAllReportsBrigadier().subscribe({
       next: (data: any) => {
-        const reportProcess = data.filter(
-          (report: any) => report.estado === 'Pendiente'
-        );
-
-        this.reports.set(reportProcess);
+        this.reports.set(data);
       },
       error: (err) => {
         console.log(err);

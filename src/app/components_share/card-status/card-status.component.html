@@ -16,8 +16,8 @@
     <footer>
       @if (report()?.estado === 'Pendiente') {
       <div class="process">Pendiente</div>
-      } @if (report()?.estado === 'Terminado') {
-      <div class="done">Terminado</div>
+      } @if (report()?.estado === 'Finalizado') {
+      <div class="done">Finalizado</div>
       }
 
       <p>{{ report()?.fechaCreacion }}</p>

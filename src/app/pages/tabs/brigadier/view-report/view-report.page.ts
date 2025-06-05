@@ -7,6 +7,7 @@ import { addIcons } from 'ionicons';
 import { arrowBackOutline } from 'ionicons/icons';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
 import { ReportService } from 'src/app/service/report/report.service';
+import { ReportBrigadierService } from 'src/app/service/report-brigadier/report-brigadier.service';
 
 @Component({
   selector: 'app-view-report-brigadier',
@@ -27,6 +28,7 @@ export class ViewReportPage {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private reportService = inject(ReportService);
+  private reportBrigadierService = inject(ReportBrigadierService);
   private reportId = Number(this.route.snapshot.paramMap.get('id'));
 
   readonly report = signal<any>([]);
@@ -35,8 +37,21 @@ export class ViewReportPage {
     addIcons({ arrowBackOutline });
   }
 
-  handleCancelReport() {
-    this.reportService.cancelReport(this.reportId).subscribe({
+  handleAcceptReport() {
+    this.reportBrigadierService.acceptedReport(this.reportId).subscribe({
+      next: (data: any) => {
+        if (data.status === 200) {
+        }
+      },
+      error: (err) => {
+        this.router.navigate(['/user/home']);
+        console.log(err);
+      },
+    });
+  }
+
+  handleFinalizeReport() {
+    this.reportBrigadierService.finalizeReport(this.reportId).subscribe({
       next: (data: any) => {
         if (data.status === 200) {
         }

@@ -6,6 +6,7 @@ import { HeaderComponent } from '../../../../components_share/header/header.comp
 import { CardStatusComponent } from '../../../../components_share/card-status/card-status.component';
 import { LinkCreateReportComponent } from '../../../../widget/link-create-report/link-create-report.component';
 import { ReportService } from 'src/app/service/report/report.service';
+import { ReportBrigadierService } from 'src/app/service/report-brigadier/report-brigadier.service';
 
 @Component({
   selector: 'app-history-brigadier',
@@ -22,7 +23,7 @@ import { ReportService } from 'src/app/service/report/report.service';
   ],
 })
 export class HistoryPage implements OnInit {
-  private reportsService = inject(ReportService);
+  private reportsService = inject(ReportBrigadierService);
   reports = signal<any>([]);
 
   ngOnInit() {
@@ -34,9 +35,13 @@ export class HistoryPage implements OnInit {
   }
 
   private async loadReports() {
-    this.reportsService.getAllReports().subscribe({
+    this.reportsService.getReportAcceptedBrigadier().subscribe({
       next: (data: any) => {
-        const sortReports = data.sort((a: any, b: any) => {
+        const reportFinalize = data.filter(
+          (report: any) => report.estado === 'Finalizado'
+        );
+
+        const sortReports = reportFinalize.sort((a: any, b: any) => {
           return a.fechaCreacion > b.fechaCreacion ? -1 : 1;
         });
 
