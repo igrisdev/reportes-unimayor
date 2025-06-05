@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <ion-content>
-  @defer (when reports().length <= 0) {
+  @if (reports().length <= 0) {
   <app-no-reports></app-no-reports>
   }
 
@@ -17,3 +17,5 @@
     }
   </section>
 </ion-content>
+
+<app-link-create-report></app-link-create-report>

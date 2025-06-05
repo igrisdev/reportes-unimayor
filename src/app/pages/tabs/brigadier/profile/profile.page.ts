@@ -7,7 +7,6 @@ import { logOutOutline } from 'ionicons/icons';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
-import { ReportsService } from 'src/app/service/reports.service';
 
 @Component({
   selector: 'app-profile',
@@ -25,7 +24,6 @@ import { ReportsService } from 'src/app/service/reports.service';
 })
 export class ProfilePage implements OnInit {
   private loginService = inject(LoginService);
-  private reportService = inject(ReportsService);
 
   router = inject(Router);
 
@@ -38,7 +36,6 @@ export class ProfilePage implements OnInit {
   logout() {
     localStorage.removeItem('token');
     this.loginService.setBrigadier(false);
-    this.reportService.cleanReports();
     this.router.navigate(['/login']);
   }
 }

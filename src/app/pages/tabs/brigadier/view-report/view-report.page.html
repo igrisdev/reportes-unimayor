@@ -1,17 +1,43 @@
 <app-header></app-header>
 
 <ion-content>
-  <ion-router-link
-    [routerLink]="['/brigadier/home']"
-    style="text-decoration: none; color: inherit"
-  >
-    <ion-icon aria-hidden="true" name="arrow-back-outline"></ion-icon>
-  </ion-router-link>
+  <section>
+    <header>
+      <button>
+        <ion-router-link
+          [routerLink]="['/user/home']"
+          style="text-decoration: none; color: inherit"
+        >
+          <ion-icon aria-hidden="true" name="arrow-back-outline"></ion-icon>
+        </ion-router-link>
+      </button>
+    </header>
 
-  <!-- <ion-label> <h1>{{ report()?.location }}</h1> </ion-label> -->
-  <!-- <ion-label> <h2>{{ report()?.date }}</h2> </ion-label> -->
-  <!-- <ion-label> <h3>{{ report()?.description }}</h3> </ion-label> -->
-  <!-- <ion-label> <h4>{{ report()?.status }}</h4> </ion-label> -->
+    <div>
+      <header>
+        <section>
+          <h2>{{ report()?.ubicacion?.nombre }}</h2>
+          @if(report()?.estado === 'Pendiente') {
+          <div class="process">Pendiente</div>
+          } @if(report()?.estado === 'Terminado') {
+          <div class="done">Terminado</div>
+          }
+        </section>
 
-  <ion-button color="success" class="ion-margin">Aceptar</ion-button>
+        <section>
+          <p>{{ report()?.horaCreacion }} / {{ report()?.fechaCreacion }}</p>
+        </section>
+      </header>
+
+      <main>
+        <p>{{ report()?.descripcion }}</p>
+      </main>
+
+      <footer>
+        @if(report()?.estado === 'Pendiente') {
+        <button (click)="handleCancelReport()">Cancelar</button>
+        }
+      </footer>
+    </div>
+  </section>
 </ion-content>

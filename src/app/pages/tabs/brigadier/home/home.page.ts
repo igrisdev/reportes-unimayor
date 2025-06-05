@@ -1,13 +1,12 @@
-import { Component, inject, OnInit, Signal } from '@angular/core';
+import { Component, OnInit, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import { IonContent } from '@ionic/angular/standalone';
-
 import { NoReportsComponent } from '../../../../widget/no-reports/no-reports.component';
-import { Report, ReportsService } from 'src/app/service/reports.service';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
-import { CardAcceptComponent } from '../../../../components_share/card-accept/card-accept.component';
+import { CardStatusComponent } from '../../../../components_share/card-status/card-status.component';
+import { LinkCreateReportComponent } from 'src/app/widget/link-create-report/link-create-report.component';
+import { IonContent } from '@ionic/angular/standalone';
+import { Report, ReportService } from 'src/app/service/report/report.service';
 
 @Component({
   selector: 'app-home',
@@ -19,26 +18,35 @@ import { CardAcceptComponent } from '../../../../components_share/card-accept/ca
     CommonModule,
     FormsModule,
     NoReportsComponent,
+    LinkCreateReportComponent,
     HeaderComponent,
-    CardAcceptComponent,
+    CardStatusComponent,
   ],
 })
 export class HomePage implements OnInit {
-  reports: Signal<Report[]> = inject(ReportsService).getReportsInProgress();
+  private reportsService = inject(ReportService);
+  reports = signal<any>([]);
 
-  constructor(private router: Router) {}
-
-  ngOnInit() {}
-
-  onCardClick(event: MouseEvent, reportId: number) {
-    if (!(event.target as HTMLElement).closest('.accept-button')) {
-      this.router.navigate(['/brigadier/view-report', reportId]);
-    }
+  ngOnInit() {
+    this.loadReports();
   }
 
-  onAcceptReport(event: Event, reportId: number) {
-    event.stopPropagation();
+  ionViewWillEnter() {
+    this.loadReports();
+  }
 
-    console.log('Reporte aceptado:', reportId);
+  private async loadReports() {
+    this.reportsService.getAllReports().subscribe({
+      next: (data: any) => {
+        const reportProcess = data.filter(
+          (report: any) => report.estado === 'Pendiente'
+        );
+
+        this.reports.set(reportProcess);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }

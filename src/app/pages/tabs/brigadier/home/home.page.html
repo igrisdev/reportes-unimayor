@@ -1,19 +1,21 @@
 <app-header></app-header>
 
 <ion-content>
-  @defer (when reports.length <= 0) {
+  @if (reports().length <= 0) {
   <app-no-reports></app-no-reports>
   }
 
   <section>
-    @defer (when reports.length > 0) {
-    <h2>Reportes Pendientes</h2>
+    @if (reports().length > 0) {
+    <h2>Reportes En Curso</h2>
 
     <div>
       @for (report of reports(); track report.idReporte) {
-      <app-card-accept [report]="report"></app-card-accept>
+      <app-card-status [report]="report"></app-card-status>
       }
     </div>
     }
   </section>
 </ion-content>
+
+<app-link-create-report></app-link-create-report>

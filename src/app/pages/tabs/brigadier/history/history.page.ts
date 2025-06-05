@@ -1,10 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonContent } from '@ionic/angular/standalone';
-import { ReportsService } from 'src/app/service/reports.service';
+import { NoReportsComponent } from '../../../../widget/no-reports/no-reports.component';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
 import { CardStatusComponent } from '../../../../components_share/card-status/card-status.component';
-import { NoReportsComponent } from '../../../../widget/no-reports/no-reports.component';
+import { LinkCreateReportComponent } from '../../../../widget/link-create-report/link-create-report.component';
+import { ReportService } from 'src/app/service/report/report.service';
 
 @Component({
   selector: 'app-history',
@@ -14,13 +15,36 @@ import { NoReportsComponent } from '../../../../widget/no-reports/no-reports.com
   imports: [
     IonContent,
     CommonModule,
+    NoReportsComponent,
     HeaderComponent,
     CardStatusComponent,
-    NoReportsComponent,
+    LinkCreateReportComponent,
   ],
 })
-export class HistoryPage {
-  private reportService = inject(ReportsService);
+export class HistoryPage implements OnInit {
+  private reportsService = inject(ReportService);
+  reports = signal<any>([]);
 
-  reports = this.reportService.getReports();
+  ngOnInit() {
+    this.loadReports();
+  }
+
+  ionViewWillEnter() {
+    this.loadReports();
+  }
+
+  private async loadReports() {
+    this.reportsService.getAllReports().subscribe({
+      next: (data: any) => {
+        const sortReports = data.sort((a: any, b: any) => {
+          return a.fechaCreacion > b.fechaCreacion ? -1 : 1;
+        });
+
+        this.reports.set(sortReports);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
 }

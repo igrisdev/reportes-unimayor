@@ -1,17 +1,12 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {
-  IonContent,
-  IonRouterLink,
-  IonIcon,
-  IonButton,
-} from '@ionic/angular/standalone';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { ReportsService, Report } from 'src/app/service/reports.service';
+import { IonContent, IonRouterLink, IonIcon } from '@ionic/angular/standalone';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { arrowBackOutline } from 'ionicons/icons';
 import { HeaderComponent } from '../../../../components_share/header/header.component';
+import { ReportService } from 'src/app/service/report/report.service';
 
 @Component({
   selector: 'app-view-report',
@@ -19,7 +14,6 @@ import { HeaderComponent } from '../../../../components_share/header/header.comp
   styleUrls: ['./view-report.page.scss'],
   standalone: true,
   imports: [
-    IonButton,
     IonIcon,
     IonRouterLink,
     IonContent,
@@ -29,23 +23,43 @@ import { HeaderComponent } from '../../../../components_share/header/header.comp
     HeaderComponent,
   ],
 })
-export class ViewReportPage implements OnInit {
+export class ViewReportPage {
   private route = inject(ActivatedRoute);
-  private reportService = inject(ReportsService);
+  private router = inject(Router);
+  private reportService = inject(ReportService);
+  private reportId = Number(this.route.snapshot.paramMap.get('id'));
 
-  report = signal<Report | null>(null);
+  readonly report = signal<any>([]);
 
   constructor() {
     addIcons({ arrowBackOutline });
   }
 
+  handleCancelReport() {
+    this.reportService.cancelReport(this.reportId).subscribe({
+      next: (data: any) => {
+        if (data.status === 200) {
+        }
+      },
+      error: (err) => {
+        this.router.navigate(['/user/home']);
+        console.log(err);
+      },
+    });
+  }
+
   ngOnInit() {
-    const reportId = Number(this.route.snapshot.paramMap.get('id'));
+    this.loadReport();
+  }
 
-    const reportFind = this.reportService.getReport(reportId);
-
-    // this.report.set(reportFind);
-
-    return [];
+  private async loadReport() {
+    this.reportService.getReport(this.reportId).subscribe({
+      next: (data: any) => {
+        this.report.set(data);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }
