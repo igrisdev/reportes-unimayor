@@ -5,8 +5,8 @@ import { NoReportsComponent } from '../../../../widget/no-reports/no-reports.com
 import { HeaderComponent } from '../../../../components_share/header/header.component';
 import { CardStatusComponent } from '../../../../components_share/card-status/card-status.component';
 import { LinkCreateReportComponent } from 'src/app/widget/link-create-report/link-create-report.component';
-import { ReportsService } from 'src/app/service/reports.service';
 import { IonContent } from '@ionic/angular/standalone';
+import { Report, ReportService } from 'src/app/service/report/report.service';
 
 @Component({
   selector: 'app-home',
@@ -24,29 +24,31 @@ import { IonContent } from '@ionic/angular/standalone';
   ],
 })
 export class HomePage implements OnInit {
-  private reportsService = inject(ReportsService);
+  private reportsService = inject(ReportService);
   reports = signal<any>([]);
 
-  constructor() {
-    effect(() => {
-      const reports = this.reportsService.getReportsInProgress();
-      this.reports.set(reports());
-    });
-  }
+  constructor() {}
 
-  async ngOnInit() {
-    await this.loadReports();
-  }
-
-  ionViewWillEnter() {
+  ngOnInit() {
     this.loadReports();
   }
 
+  // ionViewWillEnter() {
+  //   this.loadReports();
+  // }
+
   private async loadReports() {
-    try {
-      this.reportsService.loadReports();
-    } catch (error) {
-      console.error('Error loading reports:', error);
-    }
+    this.reportsService.getAllReports().subscribe({
+      next: (data: any) => {
+        const reportProcess = data.filter(
+          (report: any) => report.estado === 'Pendiente'
+        );
+
+        this.reports.set(reportProcess);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }
