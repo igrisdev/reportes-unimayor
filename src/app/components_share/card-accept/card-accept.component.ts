@@ -9,12 +9,8 @@ import { Report } from 'src/app/service/report/report.service';
   styleUrls: ['./card-accept.component.scss'],
   imports: [IonRouterLink, RouterLink],
 })
-export class CardAcceptComponent implements OnInit {
+export class CardAcceptComponent {
   readonly report = input<Report>();
-
-  constructor() {}
-
-  ngOnInit() {}
 
   onCardClick(event: Event, reportId: number | undefined | null) {
     event.stopPropagation();
