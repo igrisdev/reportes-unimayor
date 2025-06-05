@@ -5,7 +5,6 @@ import { NoReportsComponent } from '../../../../widget/no-reports/no-reports.com
 import { HeaderComponent } from '../../../../components_share/header/header.component';
 import { CardStatusComponent } from '../../../../components_share/card-status/card-status.component';
 import { LinkCreateReportComponent } from '../../../../widget/link-create-report/link-create-report.component';
-import { ReportService } from 'src/app/service/report/report.service';
 import { ReportBrigadierService } from 'src/app/service/report-brigadier/report-brigadier.service';
 
 @Component({
