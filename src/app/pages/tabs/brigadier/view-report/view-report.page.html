@@ -18,9 +18,13 @@
         <section>
           <h2>{{ report()?.ubicacion?.nombre }}</h2>
           @if(report()?.estado === 'Pendiente') {
-          <div class="process">Pendiente</div>
-          } @if(report()?.estado === 'Terminado') {
-          <div class="done">Terminado</div>
+          <div class="pending">Pendiente</div>
+          } @if(report()?.estado === 'Cancelado') {
+          <div class="cancel">Cancelado</div>
+          } @if(report()?.estado === 'En proceso') {
+          <div class="process">En proceso</div>
+          } @if(report()?.estado === 'Finalizado') {
+          <div class="done">Finalizado</div>
           }
         </section>
 
