@@ -28,6 +28,7 @@ export class ViewReportPage {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private reportBrigadierService = inject(ReportBrigadierService);
+
   private reportId = Number(this.route.snapshot.paramMap.get('id'));
 
   readonly report = signal<any>([]);
@@ -54,11 +55,9 @@ export class ViewReportPage {
     this.reportBrigadierService.finalizeReport(this.reportId).subscribe({
       next: (data: any) => {
         console.log(data);
-        if (data.status === 200) {
-        }
       },
       error: (err) => {
-        this.router.navigate(['/user/home']);
+        // this.router.navigate(['/user/home']);
         console.log(err);
       },
     });

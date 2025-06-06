@@ -37,7 +37,9 @@
         @if(report()?.estado === 'Pendiente') {
         <button class="accept" (click)="handleAcceptReport()">Aceptar</button>
         } @if(report()?.estado === 'En proceso') {
-        <button class="final" (click)="handleAcceptReport()">Finalizar</button>
+        <button class="final" (click)="handleFinalizeReport()">
+          Finalizar
+        </button>
         }
       </footer>
     </div>
