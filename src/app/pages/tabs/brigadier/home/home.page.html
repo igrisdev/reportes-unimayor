@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <ion-content>
-  @if (reports().length <= 0) {
+  @if (reports().length <= 0 && myReports().length <= 0) {
   <app-no-reports></app-no-reports>
   }
 

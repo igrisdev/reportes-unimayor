@@ -39,13 +39,9 @@ export class ViewReportPage {
 
   handleAcceptReport() {
     this.reportBrigadierService.acceptedReport(this.reportId).subscribe({
-      next: (data: any) => {
-        console.log(data);
-        if (data.status === 200) {
-        }
-      },
+      next: (data: any) => {},
       error: (err) => {
-        // this.router.navigate(['/user/home']);
+        this.router.navigate(['/brigadier/home']);
         console.log(err);
       },
     });
@@ -53,11 +49,9 @@ export class ViewReportPage {
 
   handleFinalizeReport() {
     this.reportBrigadierService.finalizeReport(this.reportId).subscribe({
-      next: (data: any) => {
-        console.log(data);
-      },
+      next: (data: any) => {},
       error: (err) => {
-        // this.router.navigate(['/user/home']);
+        this.router.navigate(['/brigadier/home']);
         console.log(err);
       },
     });
