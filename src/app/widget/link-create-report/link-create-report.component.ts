@@ -1,19 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { IonRouterLink, IonIcon } from '@ionic/angular/standalone';
-import { addIcons } from 'ionicons';
-import { addOutline } from 'ionicons/icons';
+import { IonRouterLink } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-link-create-report',
   templateUrl: './link-create-report.component.html',
   styleUrls: ['./link-create-report.component.scss'],
-  imports: [IonRouterLink, IonIcon, RouterLink],
+  imports: [IonRouterLink, RouterLink],
 })
-export class LinkCreateReportComponent implements OnInit {
-  constructor() {
-    addIcons({ addOutline });
-  }
-
-  ngOnInit() {}
-}
+export class LinkCreateReportComponent {}
