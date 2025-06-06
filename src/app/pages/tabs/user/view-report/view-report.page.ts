@@ -52,7 +52,11 @@ export class ViewReportPage {
     this.loadReport();
   }
 
-  private async loadReport() {
+  ionViewWillEnter() {
+    this.loadReport();
+  }
+
+  private loadReport() {
     this.reportService.getReport(this.reportId).subscribe({
       next: (data: any) => {
         this.report.set(data);
