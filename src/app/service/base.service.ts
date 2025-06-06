@@ -37,6 +37,7 @@ export class BaseService {
     if (body) {
       return this._http.put(url, body, { headers: this.getHeaders() });
     }
+    console.log('PUT', url);
 
     return this._http.put(url, { headers: this.getHeaders() });
   }
