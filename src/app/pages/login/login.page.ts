@@ -33,5 +33,7 @@ export class LoginPage implements OnInit {
       this.LoginForm.value.email ?? '',
       this.LoginForm.value.password ?? ''
     );
+
+    this.LoginForm.reset();
   }
 }
