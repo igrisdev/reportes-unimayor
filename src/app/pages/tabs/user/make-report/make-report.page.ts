@@ -53,5 +53,7 @@ export class MakeReportPage {
           this.router.navigate(['/user/home']);
         },
       });
+
+    this.form.reset();
   }
 }
