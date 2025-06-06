@@ -38,8 +38,6 @@ export class HomePage implements OnInit {
   private async loadReports() {
     this.reportsService.getAllReports().subscribe({
       next: (data: any) => {
-        console.log(data);
-
         const reportProcess = data.filter(
           (report: any) =>
             report.estado === 'Pendiente' || report.estado === 'En proceso'
