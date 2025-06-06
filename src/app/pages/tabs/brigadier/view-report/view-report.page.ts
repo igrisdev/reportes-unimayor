@@ -61,6 +61,10 @@ export class ViewReportPage {
     this.loadReport();
   }
 
+  ionViewWillEnter() {
+    this.loadReport();
+  }
+
   private loadReport() {
     this.reportBrigadierService
       .getAllReportsBrigadier()
