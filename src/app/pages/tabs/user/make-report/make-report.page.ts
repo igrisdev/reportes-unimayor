@@ -48,8 +48,13 @@ export class MakeReportPage {
         this.form.value.description!
       )
       .subscribe({
-        next: (data: any) => {},
+        next: (data: any) => {
+          console.log('-......');
+          console.log(data);
+        },
         error: (err) => {
+          console.log('-------');
+          console.log(err);
           this.router.navigate(['/user/home']);
         },
       });

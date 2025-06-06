@@ -28,6 +28,7 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.loadReports();
+    this.myLoadReports();
   }
 
   ionViewWillEnter() {
