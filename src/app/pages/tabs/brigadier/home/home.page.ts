@@ -24,6 +24,7 @@ import { ReportBrigadierService } from 'src/app/service/report-brigadier/report-
 export class HomePage implements OnInit {
   private reportsService = inject(ReportBrigadierService);
   reports = signal<any>([]);
+  myReports = signal<any>([]);
 
   ngOnInit() {
     this.loadReports();
@@ -31,12 +32,28 @@ export class HomePage implements OnInit {
 
   ionViewWillEnter() {
     this.loadReports();
+    this.myLoadReports();
   }
 
   private async loadReports() {
     this.reportsService.getAllReportsBrigadier().subscribe({
       next: (data: any) => {
         this.reports.set(data);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  private myLoadReports() {
+    this.reportsService.getReportAcceptedBrigadier().subscribe({
+      next: (data: any) => {
+        const reportInProcess = data.filter(
+          (report: any) => report.estado === 'En proceso'
+        );
+
+        this.myReports.set(reportInProcess);
       },
       error: (err) => {
         console.log(err);

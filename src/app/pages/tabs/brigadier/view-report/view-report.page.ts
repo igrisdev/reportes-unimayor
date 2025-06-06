@@ -53,6 +53,7 @@ export class ViewReportPage {
   handleFinalizeReport() {
     this.reportBrigadierService.finalizeReport(this.reportId).subscribe({
       next: (data: any) => {
+        console.log(data);
         if (data.status === 200) {
         }
       },

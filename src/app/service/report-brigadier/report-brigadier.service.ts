@@ -30,6 +30,6 @@ export class ReportBrigadierService {
   finalizeReport(id: number) {
     const path = this._url + 'brigadista/reportes/finalizar/' + id;
 
-    return this._http.putWithToken(path, { estado: 'Finalizado' });
+    return this._http.putWithToken(path);
   }
 }

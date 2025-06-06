@@ -6,7 +6,16 @@
   }
 
   <section>
-    @if (reports().length > 0) {
+    @if (myReports().length > 0) {
+    <h2>Reporte Aceptado</h2>
+
+    <div>
+      @for (report of myReports(); track report.idReporte) {
+      <app-card-accept [report]="report"></app-card-accept>
+      }
+    </div>
+
+    } @else if (reports().length > 0) {
     <h2>Reportes En Curso</h2>
 
     <div>
