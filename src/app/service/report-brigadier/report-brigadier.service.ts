@@ -32,10 +32,4 @@ export class ReportBrigadierService {
 
     return this._http.putWithToken(path, { estado: 'Finalizado' });
   }
-
-  // getReport(id: number) {
-  //   const path = this._url + 'reportes/' + id;
-
-  //   return this._http.getWithToken(path);
-  // }
 }
