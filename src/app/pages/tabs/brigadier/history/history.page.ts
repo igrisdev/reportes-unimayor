@@ -18,7 +18,6 @@ import { ReportBrigadierService } from 'src/app/service/report-brigadier/report-
     NoReportsComponent,
     HeaderComponent,
     CardStatusComponent,
-    LinkCreateReportComponent,
   ],
 })
 export class HistoryPage implements OnInit {

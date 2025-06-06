@@ -16,6 +16,8 @@
     <footer>
       @if (report()?.estado === 'Pendiente') {
       <div class="process">Pendiente</div>
+      } @if (report()?.estado === 'Cancelado') {
+      <div class="calcel">Cancelado</div>
       } @if (report()?.estado === 'Finalizado') {
       <div class="done">Finalizado</div>
       }
