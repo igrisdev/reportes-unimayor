@@ -6,7 +6,7 @@ import { HeaderComponent } from '../../../../components_share/header/header.comp
 import { CardStatusComponent } from '../../../../components_share/card-status/card-status.component';
 import { LinkCreateReportComponent } from 'src/app/widget/link-create-report/link-create-report.component';
 import { IonContent } from '@ionic/angular/standalone';
-import { Report, ReportService } from 'src/app/service/report/report.service';
+import { ReportService } from 'src/app/service/report/report.service';
 
 @Component({
   selector: 'app-home',
@@ -38,8 +38,11 @@ export class HomePage implements OnInit {
   private async loadReports() {
     this.reportsService.getAllReports().subscribe({
       next: (data: any) => {
+        console.log(data);
+
         const reportProcess = data.filter(
-          (report: any) => report.estado === 'Pendiente'
+          (report: any) =>
+            report.estado === 'Pendiente' || report.estado === 'En proceso'
         );
 
         this.reports.set(reportProcess);

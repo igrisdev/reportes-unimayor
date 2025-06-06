@@ -53,19 +53,24 @@ article {
       border-radius: 9999999px;
     }
 
+    .pending {
+      background-color: var(--ion-color-unimayor-tertiary);
+      color: var(--ion-color-unimayor-contrast);
+    }
+
     .done {
       background-color: var(--ion-color-unimayor-secondary);
       color: #fff;
     }
 
-    .calcel {
+    .cancel {
       background-color: #f12e2e;
       color: #fff;
     }
 
     .process {
-      background-color: var(--ion-color-unimayor-tertiary);
-      color: var(--ion-color-unimayor-contrast);
+      background-color: #2b8f0c;
+      color: var(--ion-color-unimayor-light);
     }
 
     p {
